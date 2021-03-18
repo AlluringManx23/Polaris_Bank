@@ -35,5 +35,12 @@ namespace BankSYS
                 Application.Exit();
             }
         }
+
+        private void MnuCloseAccount_Click(object sender, EventArgs e)
+        {
+            FrmCloseAccount Close = new FrmCloseAccount();
+            Close.Show();
+            this.Hide();
+        }
     }
 }

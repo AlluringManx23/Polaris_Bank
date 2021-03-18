@@ -29,6 +29,7 @@ namespace BankSYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MnuCreateCustomer = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuCreateAccount = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,19 +42,19 @@ namespace BankSYS
             this.MnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpdob = new System.Windows.Forms.DateTimePicker();
             this.BtnSubmit = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txteir = new System.Windows.Forms.TextBox();
+            this.txttown = new System.Windows.Forms.TextBox();
+            this.txtAddl1 = new System.Windows.Forms.TextBox();
             this.txtphoneno = new System.Windows.Forms.TextBox();
             this.txtlname = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtAddl2 = new System.Windows.Forms.TextBox();
             this.txtppsno = new System.Windows.Forms.TextBox();
             this.txtfname = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.LblAddl2 = new System.Windows.Forms.Label();
+            this.Lbleir = new System.Windows.Forms.Label();
+            this.LblCounty = new System.Windows.Forms.Label();
+            this.Lbltown = new System.Windows.Forms.Label();
+            this.LblAddl1 = new System.Windows.Forms.Label();
             this.LblDOB = new System.Windows.Forms.Label();
             this.LblPhoneNo = new System.Windows.Forms.Label();
             this.LblPPSNo = new System.Windows.Forms.Label();
@@ -63,12 +64,18 @@ namespace BankSYS
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboCounty = new System.Windows.Forms.ComboBox();
+            this.errorprovider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cboCountryCode = new System.Windows.Forms.ComboBox();
+            this.lblCountryCode = new System.Windows.Forms.Label();
+            this.LblAddl3 = new System.Windows.Forms.Label();
+            this.txtAddl3 = new System.Windows.Forms.TextBox();
             this.MnuCreateCustomer.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprovider)).BeginInit();
             this.SuspendLayout();
             // 
             // MnuCreateCustomer
@@ -96,19 +103,19 @@ namespace BankSYS
             // MnuCreateAccount
             // 
             this.MnuCreateAccount.Name = "MnuCreateAccount";
-            this.MnuCreateAccount.Size = new System.Drawing.Size(160, 22);
+            this.MnuCreateAccount.Size = new System.Drawing.Size(180, 22);
             this.MnuCreateAccount.Text = "Create Account";
             // 
             // MnuUpdateAccount
             // 
             this.MnuUpdateAccount.Name = "MnuUpdateAccount";
-            this.MnuUpdateAccount.Size = new System.Drawing.Size(160, 22);
+            this.MnuUpdateAccount.Size = new System.Drawing.Size(180, 22);
             this.MnuUpdateAccount.Text = "Update Account";
             // 
             // MnuCloseAccount
             // 
             this.MnuCloseAccount.Name = "MnuCloseAccount";
-            this.MnuCloseAccount.Size = new System.Drawing.Size(160, 22);
+            this.MnuCloseAccount.Size = new System.Drawing.Size(180, 22);
             this.MnuCloseAccount.Text = "Close Account";
             // 
             // moneyToolStripMenuItem
@@ -124,19 +131,19 @@ namespace BankSYS
             // MnuDeposit
             // 
             this.MnuDeposit.Name = "MnuDeposit";
-            this.MnuDeposit.Size = new System.Drawing.Size(125, 22);
+            this.MnuDeposit.Size = new System.Drawing.Size(180, 22);
             this.MnuDeposit.Text = "Deposit";
             // 
             // MnuWithdraw
             // 
             this.MnuWithdraw.Name = "MnuWithdraw";
-            this.MnuWithdraw.Size = new System.Drawing.Size(125, 22);
+            this.MnuWithdraw.Size = new System.Drawing.Size(180, 22);
             this.MnuWithdraw.Text = "Withdraw";
             // 
             // MnuTransfer
             // 
             this.MnuTransfer.Name = "MnuTransfer";
-            this.MnuTransfer.Size = new System.Drawing.Size(125, 22);
+            this.MnuTransfer.Size = new System.Drawing.Size(180, 22);
             this.MnuTransfer.Text = "Transfer";
             // 
             // MnuClose
@@ -149,71 +156,77 @@ namespace BankSYS
             // 
             // dtpdob
             // 
-            this.dtpdob.Location = new System.Drawing.Point(186, 100);
+            this.dtpdob.Location = new System.Drawing.Point(524, 56);
             this.dtpdob.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.dtpdob.MinDate = new System.DateTime(1903, 1, 1, 0, 0, 0, 0);
             this.dtpdob.Name = "dtpdob";
             this.dtpdob.Size = new System.Drawing.Size(147, 20);
-            this.dtpdob.TabIndex = 5;
+            this.dtpdob.TabIndex = 10;
+            this.dtpdob.Value = new System.DateTime(2021, 3, 18, 0, 49, 33, 0);
             // 
             // BtnSubmit
             // 
             this.BtnSubmit.Location = new System.Drawing.Point(640, 390);
             this.BtnSubmit.Name = "BtnSubmit";
             this.BtnSubmit.Size = new System.Drawing.Size(148, 48);
-            this.BtnSubmit.TabIndex = 20;
+            this.BtnSubmit.TabIndex = 29;
             this.BtnSubmit.Text = "Submit";
             this.BtnSubmit.UseVisualStyleBackColor = true;
             this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
-            // textBox10
+            // txteir
             // 
-            this.textBox10.Location = new System.Drawing.Point(186, 102);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(146, 20);
-            this.textBox10.TabIndex = 8;
+            this.txteir.Location = new System.Drawing.Point(524, 102);
+            this.txteir.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txteir.MaxLength = 8;
+            this.txteir.Name = "txteir";
+            this.txteir.Size = new System.Drawing.Size(146, 20);
+            this.txteir.TabIndex = 28;
             // 
-            // textBox9
+            // txttown
             // 
-            this.textBox9.Location = new System.Drawing.Point(524, 57);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(143, 20);
-            this.textBox9.TabIndex = 6;
+            this.txttown.Location = new System.Drawing.Point(524, 57);
+            this.txttown.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txttown.MaxLength = 22;
+            this.txttown.Name = "txttown";
+            this.txttown.Size = new System.Drawing.Size(143, 20);
+            this.txttown.TabIndex = 24;
             // 
-            // textBox8
+            // txtAddl1
             // 
-            this.textBox8.Location = new System.Drawing.Point(186, 12);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(146, 20);
-            this.textBox8.TabIndex = 17;
+            this.txtAddl1.Location = new System.Drawing.Point(186, 12);
+            this.txtAddl1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txtAddl1.MaxLength = 50;
+            this.txtAddl1.Name = "txtAddl1";
+            this.txtAddl1.Size = new System.Drawing.Size(146, 20);
+            this.txtAddl1.TabIndex = 18;
             // 
             // txtphoneno
             // 
-            this.txtphoneno.Location = new System.Drawing.Point(524, 56);
+            this.txtphoneno.Location = new System.Drawing.Point(524, 100);
             this.txtphoneno.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.txtphoneno.MaxLength = 14;
             this.txtphoneno.Name = "txtphoneno";
             this.txtphoneno.Size = new System.Drawing.Size(143, 20);
-            this.txtphoneno.TabIndex = 4;
+            this.txtphoneno.TabIndex = 14;
             // 
             // txtlname
             // 
             this.txtlname.Location = new System.Drawing.Point(524, 12);
             this.txtlname.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txtlname.MaxLength = 40;
             this.txtlname.Name = "txtlname";
             this.txtlname.Size = new System.Drawing.Size(143, 20);
-            this.txtlname.TabIndex = 2;
+            this.txtlname.TabIndex = 6;
             // 
-            // textBox4
+            // txtAddl2
             // 
-            this.textBox4.Location = new System.Drawing.Point(524, 12);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 20);
-            this.textBox4.TabIndex = 5;
+            this.txtAddl2.Location = new System.Drawing.Point(524, 12);
+            this.txtAddl2.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txtAddl2.MaxLength = 50;
+            this.txtAddl2.Name = "txtAddl2";
+            this.txtAddl2.Size = new System.Drawing.Size(143, 20);
+            this.txtAddl2.TabIndex = 20;
             // 
             // txtppsno
             // 
@@ -222,7 +235,7 @@ namespace BankSYS
             this.txtppsno.MaxLength = 9;
             this.txtppsno.Name = "txtppsno";
             this.txtppsno.Size = new System.Drawing.Size(146, 20);
-            this.txtppsno.TabIndex = 3;
+            this.txtppsno.TabIndex = 8;
             // 
             // txtfname
             // 
@@ -230,78 +243,79 @@ namespace BankSYS
             this.txtfname.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtfname.Location = new System.Drawing.Point(186, 12);
             this.txtfname.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txtfname.MaxLength = 40;
             this.txtfname.Name = "txtfname";
             this.txtfname.Size = new System.Drawing.Size(146, 20);
-            this.txtfname.TabIndex = 1;
+            this.txtfname.TabIndex = 4;
             // 
-            // label7
+            // LblAddl2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(431, 15);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Address Line 2:";
+            this.LblAddl2.AutoSize = true;
+            this.LblAddl2.Location = new System.Drawing.Point(431, 15);
+            this.LblAddl2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.LblAddl2.Name = "LblAddl2";
+            this.LblAddl2.Size = new System.Drawing.Size(80, 13);
+            this.LblAddl2.TabIndex = 19;
+            this.LblAddl2.Text = "Address Line 2:";
             // 
-            // label10
+            // Lbleir
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(93, 105);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Eir Code:";
+            this.Lbleir.AutoSize = true;
+            this.Lbleir.Location = new System.Drawing.Point(431, 105);
+            this.Lbleir.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.Lbleir.Name = "Lbleir";
+            this.Lbleir.Size = new System.Drawing.Size(50, 13);
+            this.Lbleir.TabIndex = 27;
+            this.Lbleir.Text = "Eir Code:";
             // 
-            // label9
+            // LblCounty
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(93, 60);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "County:";
+            this.LblCounty.AutoSize = true;
+            this.LblCounty.Location = new System.Drawing.Point(93, 105);
+            this.LblCounty.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.LblCounty.Name = "LblCounty";
+            this.LblCounty.Size = new System.Drawing.Size(43, 13);
+            this.LblCounty.TabIndex = 25;
+            this.LblCounty.Text = "County:";
             // 
-            // label8
+            // Lbltown
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(431, 60);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Town:";
+            this.Lbltown.AutoSize = true;
+            this.Lbltown.Location = new System.Drawing.Point(431, 60);
+            this.Lbltown.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.Lbltown.Name = "Lbltown";
+            this.Lbltown.Size = new System.Drawing.Size(37, 13);
+            this.Lbltown.TabIndex = 23;
+            this.Lbltown.Text = "Town:";
             // 
-            // label6
+            // LblAddl1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(93, 15);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Address Line 1:";
+            this.LblAddl1.AutoSize = true;
+            this.LblAddl1.Location = new System.Drawing.Point(93, 15);
+            this.LblAddl1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.LblAddl1.Name = "LblAddl1";
+            this.LblAddl1.Size = new System.Drawing.Size(80, 13);
+            this.LblAddl1.TabIndex = 17;
+            this.LblAddl1.Text = "Address Line 1:";
             // 
             // LblDOB
             // 
             this.LblDOB.AutoSize = true;
-            this.LblDOB.Location = new System.Drawing.Point(93, 103);
+            this.LblDOB.Location = new System.Drawing.Point(431, 59);
             this.LblDOB.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.LblDOB.Name = "LblDOB";
             this.LblDOB.Size = new System.Drawing.Size(71, 13);
-            this.LblDOB.TabIndex = 4;
+            this.LblDOB.TabIndex = 9;
             this.LblDOB.Text = "Date Of Birth:";
             // 
             // LblPhoneNo
             // 
             this.LblPhoneNo.AutoSize = true;
-            this.LblPhoneNo.Location = new System.Drawing.Point(431, 59);
+            this.LblPhoneNo.Location = new System.Drawing.Point(431, 103);
             this.LblPhoneNo.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.LblPhoneNo.Name = "LblPhoneNo";
             this.LblPhoneNo.Size = new System.Drawing.Size(81, 13);
-            this.LblPhoneNo.TabIndex = 3;
+            this.LblPhoneNo.TabIndex = 13;
             this.LblPhoneNo.Text = "Phone Number:";
             // 
             // LblPPSNo
@@ -311,7 +325,7 @@ namespace BankSYS
             this.LblPPSNo.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.LblPPSNo.Name = "LblPPSNo";
             this.LblPPSNo.Size = new System.Drawing.Size(71, 13);
-            this.LblPPSNo.TabIndex = 2;
+            this.LblPPSNo.TabIndex = 7;
             this.LblPPSNo.Text = "PPS Number:";
             // 
             // lblLname
@@ -321,7 +335,7 @@ namespace BankSYS
             this.lblLname.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.lblLname.Name = "lblLname";
             this.lblLname.Size = new System.Drawing.Size(61, 13);
-            this.lblLname.TabIndex = 1;
+            this.lblLname.TabIndex = 5;
             this.lblLname.Text = "Last Name:";
             // 
             // LblFname
@@ -331,7 +345,7 @@ namespace BankSYS
             this.LblFname.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.LblFname.Name = "LblFname";
             this.LblFname.Size = new System.Drawing.Size(60, 13);
-            this.LblFname.TabIndex = 0;
+            this.LblFname.TabIndex = 3;
             this.LblFname.Text = "First Name:";
             // 
             // tableLayoutPanel1
@@ -348,12 +362,14 @@ namespace BankSYS
             this.tableLayoutPanel1.Controls.Add(this.lblLname, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtlname, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtppsno, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtphoneno, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.LblPhoneNo, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.LblPPSNo, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.LblDOB, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dtpdob, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.LblFname, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dtpdob, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.LblDOB, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtphoneno, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.LblPhoneNo, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboCountryCode, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblCountryCode, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -361,7 +377,7 @@ namespace BankSYS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 134);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -369,7 +385,7 @@ namespace BankSYS
             this.groupBox1.Location = new System.Drawing.Point(0, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(800, 174);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Information";
             // 
@@ -379,7 +395,7 @@ namespace BankSYS
             this.groupBox2.Location = new System.Drawing.Point(0, 207);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(800, 177);
-            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address";
             // 
@@ -393,16 +409,18 @@ namespace BankSYS
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.00114F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.00589F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.66373F));
-            this.tableLayoutPanel2.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox8, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox9, 5, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox10, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.LblAddl1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtAddl1, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LblAddl2, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtAddl2, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txteir, 5, 2);
+            this.tableLayoutPanel2.Controls.Add(this.Lbleir, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.LblAddl3, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtAddl3, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cboCounty, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txttown, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.Lbltown, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.LblCounty, 1, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 19);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
@@ -410,13 +428,13 @@ namespace BankSYS
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(776, 135);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.TabIndex = 16;
             // 
-            // comboBox1
+            // cboCounty
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "",
+            this.cboCounty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCounty.FormattingEnabled = true;
+            this.cboCounty.Items.AddRange(new object[] {
             "Antrim",
             "Armagh",
             "Carlow",
@@ -449,11 +467,271 @@ namespace BankSYS
             "Westmeath",
             "Wexford",
             "Wicklow"});
-            this.comboBox1.Location = new System.Drawing.Point(186, 57);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 21);
-            this.comboBox1.TabIndex = 18;
+            this.cboCounty.Location = new System.Drawing.Point(186, 102);
+            this.cboCounty.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.cboCounty.Name = "cboCounty";
+            this.cboCounty.Size = new System.Drawing.Size(146, 21);
+            this.cboCounty.TabIndex = 26;
+            // 
+            // errorprovider
+            // 
+            this.errorprovider.BlinkRate = 0;
+            this.errorprovider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorprovider.ContainerControl = this;
+            // 
+            // cboCountryCode
+            // 
+            this.cboCountryCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCountryCode.FormattingEnabled = true;
+            this.cboCountryCode.Items.AddRange(new object[] {
+            "Algeria (+213)",
+            "Andorra (+376)",
+            "Angola (+244)",
+            "Anguilla (+1264)",
+            "Antigua Barbuda (+1268)",
+            "Argentina (+54)",
+            "Armenia (+374)",
+            "Aruba (+297)",
+            "Australia (+61)",
+            "Austria (+43)",
+            "Azerbaijan (+994)",
+            "Bahamas (+1242)",
+            "Bahrain (+973)",
+            "Bangladesh (+880)",
+            "Barbados (+1246)",
+            "Belarus (+375)",
+            "Belgium (+32)",
+            "Belize (+501)",
+            "Benin (+229)",
+            "Bermuda (+1441)",
+            "Bhutan (+975)",
+            "Bolivia (+591)",
+            "Bosnia Herzegovina (+387)",
+            "Botswana (+267)",
+            "Brazil (+55)",
+            "Brunei (+673)",
+            "Bulgaria (+359)",
+            "Burkina Faso (+226)",
+            "Burundi (+257)",
+            "Cambodia (+855)",
+            "Cameroon (+237)",
+            "Canada (+1)",
+            "Cape Verde Islands (+238)",
+            "Cayman Islands (+1345)",
+            "Central African Republic (+236)",
+            "Chile (+56)",
+            "China (+86)",
+            "Colombia (+57)",
+            "Comoros (+269)",
+            "Congo (+242)",
+            "Cook Islands (+682)",
+            "Costa Rica (+506)",
+            "Croatia (+385)",
+            "Cuba (+53)",
+            "Cyprus North (+90392)",
+            "Cyprus South (+357)",
+            "Czech Republic (+42)",
+            "Denmark (+45)",
+            "Djibouti (+253)",
+            "Dominica (+1809)",
+            "Dominican Republic (+1809)",
+            "Ecuador (+593)",
+            "Egypt (+20)",
+            "El Salvador (+503)",
+            "Equatorial Guinea (+240)",
+            "Eritrea (+291)",
+            "Estonia (+372)",
+            "Ethiopia (+251)",
+            "Falkland Islands (+500)",
+            "Faroe Islands (+298)",
+            "Fiji (+679)",
+            "Finland (+358)",
+            "France (+33)",
+            "French Guiana (+594)",
+            "French Polynesia (+689)",
+            "Gabon (+241)",
+            "Gambia (+220)",
+            "Georgia (+7880)",
+            "Germany (+49)",
+            "Ghana (+233)",
+            "Gibraltar (+350)",
+            "Greece (+30)",
+            "Greenland (+299)",
+            "Grenada (+1473)",
+            "Guadeloupe (+590)",
+            "Guam (+671)",
+            "Guatemala (+502)",
+            "Guinea (+224)",
+            "Guinea - Bissau (+245)",
+            "Guyana (+592)",
+            "Haiti (+509)",
+            "Honduras (+504)",
+            "Hong Kong (+852)",
+            "Hungary (+36)",
+            "Iceland (+354)",
+            "India (+91)",
+            "Indonesia (+62)",
+            "Iran (+98)",
+            "Iraq (+964)",
+            "Ireland (+353)",
+            "Israel (+972)",
+            "Italy (+39)",
+            "Jamaica (+1876)",
+            "Japan (+81)",
+            "Jordan (+962)",
+            "Kazakhstan (+7)",
+            "Kenya (+254)",
+            "Kiribati (+686)",
+            "Korea North (+850)",
+            "Korea South (+82)",
+            "Kuwait (+965)",
+            "Kyrgyzstan (+996)",
+            "Laos (+856)",
+            "Latvia (+371)",
+            "Lebanon (+961)",
+            "Lesotho (+266)",
+            "Liberia (+231)",
+            "Libya (+218)",
+            "Liechtenstein (+417)",
+            "Lithuania (+370)",
+            "Luxembourg (+352)",
+            "Macao (+853)",
+            "Macedonia (+389)",
+            "Madagascar (+261)",
+            "Malawi (+265)",
+            "Malaysia (+60)",
+            "Maldives (+960)",
+            "Mali (+223)",
+            "Malta (+356)",
+            "Marshall Islands (+692)",
+            "Martinique (+596)",
+            "Mauritania (+222)",
+            "Mayotte (+269)",
+            "Mexico (+52)",
+            "Micronesia (+691)",
+            "Moldova (+373)",
+            "Monaco (+377)",
+            "Mongolia (+976)",
+            "Montserrat (+1664)",
+            "Morocco (+212)",
+            "Mozambique (+258)",
+            "Myanmar (+95)",
+            "Namibia (+264)",
+            "Nauru (+674)",
+            "Nepal (+977)",
+            "Netherlands (+31)",
+            "New Caledonia (+687)",
+            "New Zealand (+64)",
+            "Nicaragua (+505)",
+            "Niger (+227)",
+            "Nigeria (+234)",
+            "Niue (+683)",
+            "Norfolk Islands (+672)",
+            "Northern Marianas (+670)",
+            "Norway (+47)",
+            "Oman (+968)",
+            "Palau (+680)",
+            "Panama (+507)",
+            "Papua New Guinea (+675)",
+            "Paraguay (+595)",
+            "Peru (+51)",
+            "Philippines (+63)",
+            "Poland (+48)",
+            "Portugal (+351)",
+            "Puerto Rico (+1787)",
+            "Qatar (+974)",
+            "Reunion (+262)",
+            "Romania (+40)",
+            "Russia (+7)",
+            "Rwanda (+250)",
+            "San Marino (+378)",
+            "Sao Tome Principe (+239)",
+            "Saudi Arabia (+966)",
+            "Senegal (+221)",
+            "Serbia (+381)",
+            "Seychelles (+248)",
+            "Sierra Leone (+232)",
+            "Singapore (+65)",
+            "Slovak Republic (+421)",
+            "Slovenia (+386)",
+            "Solomon Islands (+677)",
+            "Somalia (+252)",
+            "South Africa (+27)",
+            "Spain (+34)",
+            "Sri Lanka (+94)",
+            "St. Helena (+290)",
+            "St. Kitts (+1869)",
+            "St. Lucia (+1758)",
+            "Sudan (+249)",
+            "Suriname (+597)",
+            "Swaziland (+268)",
+            "Sweden (+46)",
+            "Switzerland (+41)",
+            "Syria (+963)",
+            "Taiwan (+886)",
+            "Tajikstan (+7)",
+            "Thailand (+66)",
+            "Togo (+228)",
+            "Tonga (+676)",
+            "Trinidad Tobago (+1868)",
+            "Tunisia (+216)",
+            "Turkey (+90)",
+            "Turkmenistan (+7)",
+            "Turkmenistan (+993)",
+            "Turks Caicos Islands (+1649)",
+            "Tuvalu (+688)",
+            "Uganda (+256)",
+            "UK (+44)",
+            "Ukraine (+380)",
+            "United Arab Emirates (+971)",
+            "Uruguay (+598)",
+            "USA (+1)",
+            "Uzbekistan (+7)",
+            "Vanuatu (+678)",
+            "Vatican City (+379)",
+            "Venezuela (+58)",
+            "Vietnam (+84)",
+            "Virgin Islands - British (+1284)",
+            "Virgin Islands - US (+1340)",
+            "Wallis Futuna (+681)",
+            "Yemen (North)(+969)",
+            "Yemen (South)(+967)",
+            "Zambia (+260)",
+            "Zimbabwe (+263)"});
+            this.cboCountryCode.Location = new System.Drawing.Point(186, 100);
+            this.cboCountryCode.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.cboCountryCode.Name = "cboCountryCode";
+            this.cboCountryCode.Size = new System.Drawing.Size(146, 21);
+            this.cboCountryCode.TabIndex = 12;
+            // 
+            // lblCountryCode
+            // 
+            this.lblCountryCode.AutoSize = true;
+            this.lblCountryCode.Location = new System.Drawing.Point(93, 103);
+            this.lblCountryCode.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.lblCountryCode.Name = "lblCountryCode";
+            this.lblCountryCode.Size = new System.Drawing.Size(74, 13);
+            this.lblCountryCode.TabIndex = 11;
+            this.lblCountryCode.Text = "Country Code:";
+            // 
+            // LblAddl3
+            // 
+            this.LblAddl3.AutoSize = true;
+            this.LblAddl3.Location = new System.Drawing.Point(93, 60);
+            this.LblAddl3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.LblAddl3.Name = "LblAddl3";
+            this.LblAddl3.Size = new System.Drawing.Size(80, 13);
+            this.LblAddl3.TabIndex = 21;
+            this.LblAddl3.Text = "Address Line 3:";
+            // 
+            // txtAddl3
+            // 
+            this.txtAddl3.Location = new System.Drawing.Point(186, 57);
+            this.txtAddl3.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txtAddl3.MaxLength = 50;
+            this.txtAddl3.Name = "txtAddl3";
+            this.txtAddl3.Size = new System.Drawing.Size(143, 20);
+            this.txtAddl3.TabIndex = 22;
             // 
             // FrmCreateAccount
             // 
@@ -468,6 +746,7 @@ namespace BankSYS
             this.Name = "FrmCreateAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Customer";
+            this.Load += new System.EventHandler(this.FrmCreateAccount_Load);
             this.MnuCreateCustomer.ResumeLayout(false);
             this.MnuCreateCustomer.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -476,6 +755,7 @@ namespace BankSYS
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorprovider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,19 +775,19 @@ namespace BankSYS
         private System.Windows.Forms.ToolStripMenuItem MnuClose;
         private System.Windows.Forms.DateTimePicker dtpdob;
         private System.Windows.Forms.Button BtnSubmit;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txteir;
+        private System.Windows.Forms.TextBox txttown;
+        private System.Windows.Forms.TextBox txtAddl1;
         private System.Windows.Forms.TextBox txtphoneno;
         private System.Windows.Forms.TextBox txtlname;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtAddl2;
         private System.Windows.Forms.TextBox txtppsno;
         private System.Windows.Forms.TextBox txtfname;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblAddl2;
+        private System.Windows.Forms.Label Lbleir;
+        private System.Windows.Forms.Label LblCounty;
+        private System.Windows.Forms.Label Lbltown;
+        private System.Windows.Forms.Label LblAddl1;
         private System.Windows.Forms.Label LblDOB;
         private System.Windows.Forms.Label LblPhoneNo;
         private System.Windows.Forms.Label LblPPSNo;
@@ -517,6 +797,11 @@ namespace BankSYS
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboCounty;
+        private System.Windows.Forms.ErrorProvider errorprovider;
+        private System.Windows.Forms.ComboBox cboCountryCode;
+        private System.Windows.Forms.Label lblCountryCode;
+        private System.Windows.Forms.Label LblAddl3;
+        private System.Windows.Forms.TextBox txtAddl3;
     }
 }

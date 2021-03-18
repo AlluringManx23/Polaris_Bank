@@ -8,6 +8,6 @@ namespace BankSYS
         //public const String oradb = "Data Source = oracle/orcl; User Id = <ID>; Password = <ID>;";
 
         //if connecting at home, localhost/orcl
-        public const String oraDB = "Data Source = 3.250.137.235/orcl; User ID = C##JASON; Password = testing;";
+        public const String oradb = "Data Source = 3.250.137.235/orcl; User ID = C##JASON; Password = testing;";
     }
 }

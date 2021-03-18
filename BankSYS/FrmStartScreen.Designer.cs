@@ -35,13 +35,13 @@ namespace BankSYS
             this.MnuUpdateAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuCloseAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.moneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuDeposit = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuWithdraw = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuTransfer = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.lblName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.MnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuStartScreen.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,7 @@ namespace BankSYS
             this.MnuCloseAccount.Name = "MnuCloseAccount";
             this.MnuCloseAccount.Size = new System.Drawing.Size(180, 22);
             this.MnuCloseAccount.Text = "Close Account";
+            this.MnuCloseAccount.Click += new System.EventHandler(this.MnuCloseAccount_Click);
             // 
             // moneyToolStripMenuItem
             // 
@@ -98,29 +99,37 @@ namespace BankSYS
             this.moneyToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.moneyToolStripMenuItem.Text = "Money";
             // 
+            // MnuDeposit
+            // 
+            this.MnuDeposit.Name = "MnuDeposit";
+            this.MnuDeposit.Size = new System.Drawing.Size(125, 22);
+            this.MnuDeposit.Text = "Deposit";
+            // 
+            // MnuWithdraw
+            // 
+            this.MnuWithdraw.Name = "MnuWithdraw";
+            this.MnuWithdraw.Size = new System.Drawing.Size(125, 22);
+            this.MnuWithdraw.Text = "Withdraw";
+            // 
+            // MnuTransfer
+            // 
+            this.MnuTransfer.Name = "MnuTransfer";
+            this.MnuTransfer.Size = new System.Drawing.Size(125, 22);
+            this.MnuTransfer.Text = "Transfer";
+            // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
-            // MnuDeposit
+            // MnuClose
             // 
-            this.MnuDeposit.Name = "MnuDeposit";
-            this.MnuDeposit.Size = new System.Drawing.Size(180, 22);
-            this.MnuDeposit.Text = "Deposit";
-            // 
-            // MnuWithdraw
-            // 
-            this.MnuWithdraw.Name = "MnuWithdraw";
-            this.MnuWithdraw.Size = new System.Drawing.Size(180, 22);
-            this.MnuWithdraw.Text = "Withdraw";
-            // 
-            // MnuTransfer
-            // 
-            this.MnuTransfer.Name = "MnuTransfer";
-            this.MnuTransfer.Size = new System.Drawing.Size(180, 22);
-            this.MnuTransfer.Text = "Transfer";
+            this.MnuClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.MnuClose.Name = "MnuClose";
+            this.MnuClose.Size = new System.Drawing.Size(48, 20);
+            this.MnuClose.Text = "Close";
+            this.MnuClose.Click += new System.EventHandler(this.MnuClose_Click);
             // 
             // lblName
             // 
@@ -156,14 +165,6 @@ namespace BankSYS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 422);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // MnuClose
-            // 
-            this.MnuClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MnuClose.Name = "MnuClose";
-            this.MnuClose.Size = new System.Drawing.Size(48, 20);
-            this.MnuClose.Text = "Close";
-            this.MnuClose.Click += new System.EventHandler(this.MnuClose_Click);
             // 
             // FrmStartScreen
             // 
