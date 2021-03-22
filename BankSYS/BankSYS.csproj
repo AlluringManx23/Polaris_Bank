@@ -49,20 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountSQL.cs" />
+    <Compile Include="UserSQL.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DBConnect.cs" />
+    <Compile Include="FillfromDB.cs" />
     <Compile Include="FrmCloseAccount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCloseAccount.Designer.cs">
       <DependentUpon>FrmCloseAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCreateAccount.cs">
+    <Compile Include="FrmRegesterUserData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCreateAccount.Designer.cs">
-      <DependentUpon>FrmCreateAccount.cs</DependentUpon>
+    <Compile Include="FrmRegesterUserData.Designer.cs">
+      <DependentUpon>FrmRegesterUserData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegesterLoginData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegesterLoginData.Designer.cs">
+      <DependentUpon>FrmRegesterLoginData.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStartScreen.cs">
       <SubType>Form</SubType>
@@ -76,8 +83,11 @@
     <EmbeddedResource Include="FrmCloseAccount.resx">
       <DependentUpon>FrmCloseAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCreateAccount.resx">
-      <DependentUpon>FrmCreateAccount.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRegesterUserData.resx">
+      <DependentUpon>FrmRegesterUserData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegesterLoginData.resx">
+      <DependentUpon>FrmRegesterLoginData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStartScreen.resx">
       <DependentUpon>FrmStartScreen.cs</DependentUpon>

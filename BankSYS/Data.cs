@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace BankSYS
 {
-    class Data
+    public static class Data
     {
-        public int id { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public string ppsno { get; set; }
-        public string dob { get; set; }
-        public string countrycode { get; set; }
-        public string phoneno { get; set; }
-        public string addressl1 { get; set; }
-        public string addressl2 { get; set; }
-        public string addressl3 { get; set; }
-        public string town { get; set; }
-        public string county { get; set; }
-        public string eir { get; set; }
-        public string datecreated{ get; set; }
+        public static int Id { get; set; }
+        public static string Fname { get; set; }
+        public static string Lname { get; set; }
+        public static string PPSNo { get; set; }
+        public static string DOB { get; set; }
+        public static string CountryCode { get; set; }
+        public static string PhoneNo { get; set; }
+        public static string AddressL1 { get; set; }
+        public static string AddressL2 { get; set; }
+        public static string AddressL3 { get; set; }
+        public static string Town { get; set; }
+        public static string County { get; set; }
+        public static string Eir { get; set; }
+        public static string DateCreated { get; set; }
 
 
 

@@ -19,8 +19,8 @@ namespace BankSYS
 
         private void MnuCreateAccount_Click(object sender, EventArgs e)
         {
-            FrmCreateAccount Account = new FrmCreateAccount();
-            Account.Show();
+            FrmRegesterLoginData Reg = new FrmRegesterLoginData();
+            Reg.Show();
             this.Hide();
         }
 

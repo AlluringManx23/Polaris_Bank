@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankSYS
 {
-    class AccountSQL
+    class UserSQL
     {
         public static int GetNextId()
         {
@@ -31,15 +31,15 @@ namespace BankSYS
             return last;
         }
 
-        public static void AddAccount(Data d)
+        public static void AddUser()
         {
-            d.id = GetNextId();
+            Data.Id = GetNextId();
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            String strSQL = "INSERT INTO accounts(accountid,first_name,last_name,pps_number,country_code,phone_number,date_of_birth,address_line_1,address_line_2,address_line_3,town,county,eircode,date_created) " +
-            "VALUES(" + d.id + ", '" + d.fname + " ', '" + d.lname + "', '" + d.ppsno + "', '" + d.countrycode + "', '" + d.phoneno + "', TO_DATE('" + d.dob + "', 'DD/MM/YYYY'), '" + d.addressl1 + "', '" + d.addressl2 + "', '" + d.addressl3 + "', '" + d.town + "', '" + d.county + "', '" + d.eir + "', TO_DATE('" + d.datecreated + "', 'DD/MM/YYYY'))";
+            String strSQL = "INSERT INTO accounts(accountid,first_name,last_name,pps_number,country_code,phone_number,date_of_birth,address_line_1,address_line_2,address_line_3,town,county,eircode,date_created) ";// +
+            //"VALUES(" + .Id + ", '" + d.Fname + " ', '" + d.lname + "', '" + d.ppsno + "', '" + d.countrycode + "', '" + d.phoneno + "', TO_DATE('" + d.dob + "', 'DD/MM/YYYY'), '" + d.addressl1 + "', '" + d.addressl2 + "', '" + d.addressl3 + "', '" + d.town + "', '" + d.county + "', '" + d.eir + "', TO_DATE('" + d.datecreated + "', 'DD/MM/YYYY'))";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
@@ -47,7 +47,7 @@ namespace BankSYS
             conn.Close();
         }
 
-        public static DataSet getCustomer()
+        public static DataSet GetUser()
         {
             //define Sql Query
             String strSQL = "SELECT accountid, first_name, last_name,date_of_birth FROM Accounts";
@@ -71,6 +71,28 @@ namespace BankSYS
             conn.Close();
 
             return ds;
+        }
+
+        public static bool IsInUse(string s)
+        {
+            //define Sql Query
+            String strSQL = "SELECT * FROM users where pps_number = " + s;
+            
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+            if (dr[0] == DBNull.Value)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

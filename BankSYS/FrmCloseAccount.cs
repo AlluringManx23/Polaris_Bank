@@ -19,7 +19,6 @@ namespace BankSYS
 
         private void FrmCloseAccount_Load(object sender, EventArgs e)
         {
-            grdAccount.DataSource = AccountSQL.getCustomer();
 
             for (int i = 0; i < grdAccount.Columns.Count - 1; i++)
             {

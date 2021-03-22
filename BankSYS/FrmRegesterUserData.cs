@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BankSYS
 {
-    public partial class FrmCreateAccount : Form
+    public partial class FrmRegesterUserData : Form
     {
-        public FrmCreateAccount()
+        public FrmRegesterUserData()
         {
             InitializeComponent();
         }
@@ -33,69 +33,62 @@ namespace BankSYS
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             Validation v = new Validation();
-            Data d = new Data();
             bool valid = true;
-            
-            d.fname = txtfname.Text;
-            d.lname = txtlname.Text;
-            d.ppsno = txtppsno.Text;
-            d.countrycode = cboCountryCode.Text;
-            d.phoneno = txtphoneno.Text;
-            d.dob = dtpdob.Value.ToString("dd-MM-yyyy");
-            d.addressl1 = txtAddl1.Text;
-            d.addressl2 = txtAddl2.Text;
-            d.addressl3 = txtAddl3.Text;
-            d.county = cboCounty.Text;
-            d.town = txttown.Text;
-            d.eir = txteir.Text;
+
+            Data.Fname = txtfname.Text;
+            Data.Lname = txtlname.Text;
+            Data.CountryCode = cboCountryCode.SelectedValue.ToString();
+            Data.PhoneNo = txtphoneno.Text;
+            Data.DOB = dtpdob.Value.ToString("dd-MM-yyyy");
+            Data.AddressL1 = txtAddl1.Text;
+            Data.AddressL2 = txtAddl2.Text;
+            Data.AddressL3 = txtAddl3.Text;
+            Data.County = cboCounty.SelectedValue.ToString();
+            Data.Town = txttown.Text;
+            Data.Eir = txteir.Text;
 
             //making things uppercase
-            d.ppsno = d.ppsno.ToUpper();
-            d.eir = d.eir.ToUpper();
+            Data.PPSNo = Data.PPSNo.ToUpper();
+            Data.Eir = Data.Eir.ToUpper();
 
             errorprovider.Clear();
 
-            if (!v.IsAlphabeticNoSpace(d.fname))
+            if (!v.IsAlphabeticNoSpace(Data.Fname))
             {
                 errorprovider.SetError(txtfname, "First name must only contain letters");
                 valid = false;
             }
-            if (!v.IsAlphabeticNoSpace(d.lname))
+            if (!v.IsAlphabeticNoSpace(Data.Lname))
             {
                 errorprovider.SetError(txtlname, "Last name must only contain letters");
                 valid = false;
             }
-            if (!v.IsPPS(d.ppsno))
-            {
-                errorprovider.SetError(txtppsno, "PPS number must have 7 numbers and one or 2 letters at the end");
-                valid = false;
-            }
-            if (!v.IsNumeric(d.phoneno))
+            if (!v.IsNumeric(Data.PhoneNo))
             {
                 errorprovider.SetError(txtphoneno, "phone number must only contain numbers");
                 valid = false;
             }
-            if (v.IsEmpty(d.countrycode))
+            if (v.IsEmpty(Data.CountryCode))
             {
                 errorprovider.SetError(cboCountryCode, "Please select a country code");
                 valid = false;
             }
-            if (v.IsEmpty(d.addressl1))
+            if (v.IsEmpty(Data.AddressL1))
             {
                 errorprovider.SetError(txtAddl1, "Please enter an address");
                 valid = false;
             }
-            if (v.IsEmpty(d.county))
+            if (v.IsEmpty(Data.County))
             {
                 errorprovider.SetError(cboCounty, "Please select a county");
                 valid = false;
             }
-            if (!v.IsAlphabetic(d.town))
+            if (!v.IsAlphabetic(Data.Town))
             {
                 errorprovider.SetError(txttown, "Town must only be alphabetic");
                 valid = false;
             }
-            if (!v.IsEir(d.eir))
+            if (!v.IsEir(Data.Eir))
             {
                 errorprovider.SetError(txteir, "Please enter a valid eircode");
                 valid = false;
@@ -103,25 +96,21 @@ namespace BankSYS
 
             if (valid.Equals(true))
             {
-                d.fname = char.ToUpper(d.fname[0]) + d.fname.Substring(1);
-                d.lname = char.ToUpper(d.lname[0]) + d.lname.Substring(1);
-                //getting country phone code from cbobox
-                int start = d.countrycode.IndexOf("(") + 1;
-                int end = d.countrycode.IndexOf(")", start);
-                d.countrycode = d.countrycode.Substring(start, end - start);
+                Data.Fname = char.ToUpper(Data.Fname[0]) + Data.Fname.Substring(1);
+                Data.Lname = char.ToUpper(Data.Lname[0]) + Data.Lname.Substring(1);
 
-                if(!d.eir.Contains(" "))
+                if (!Data.Eir.Contains(" "))
                 {
-                    d.eir = d.eir.Substring(0,3) + " " + d.eir.Substring(3, 4);
+                    Data.Eir = Data.Eir.Substring(0, 3) + " " + Data.Eir.Substring(3, 4);
                 }
-                d.datecreated = DateTime.Now.ToString("dd-MM-yyyy");
-                AccountSQL.AddAccount(d);
-                MessageBox.Show("Account created Id=" + d.id.ToString());
-                
+                Data.DateCreated = DateTime.Now.ToString("dd-MM-yyyy");
+                UserSQL.AddUser();
+                MessageBox.Show(Data.County + Data.CountryCode);
+
                 FrmStartScreen s = new FrmStartScreen();
                 s.Show();
                 this.Hide();
-                
+
 
             }
         }
@@ -129,6 +118,21 @@ namespace BankSYS
         private void FrmCreateAccount_Load(object sender, EventArgs e)
         {
             dtpdob.MaxDate = DateTime.Today;
+
+            string[] countryarr = { "countryid", "CONCAT(country,CONCAT(' ',CONCAT('(',CONCAT(code,')')))) AS country", "country_code" };
+            string[] countyarr = { "countyid", "county", "county" };
+            DataSet countryds = new DataSet();
+            DataSet countyds = new DataSet();
+            
+            countryds = FillfromDB.dsfromsql(countryarr);
+            cboCountryCode.ValueMember = "countryid";
+            cboCountryCode.DisplayMember = "country";
+            cboCountryCode.DataSource = countryds.Tables[0];
+            
+            countyds = FillfromDB.dsfromsql(countyarr);
+            cboCounty.ValueMember = "countyid";
+            cboCounty.DisplayMember = "county";
+            cboCounty.DataSource = countyds.Tables[0];
         }
     }
 }
