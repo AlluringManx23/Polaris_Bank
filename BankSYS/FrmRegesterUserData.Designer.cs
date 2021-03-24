@@ -62,9 +62,9 @@ namespace BankSYS
             this.lblCountryCode = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LblAddl3 = new System.Windows.Forms.Label();
-            this.txtAddl3 = new System.Windows.Forms.TextBox();
             this.cboCounty = new System.Windows.Forms.ComboBox();
+            this.txtAddl3 = new System.Windows.Forms.TextBox();
+            this.LblAddl3 = new System.Windows.Forms.Label();
             this.errorprovider = new System.Windows.Forms.ErrorProvider(this.components);
             this.MnuCreateCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -155,7 +155,7 @@ namespace BankSYS
             this.dtpdob.MinDate = new System.DateTime(1903, 1, 1, 0, 0, 0, 0);
             this.dtpdob.Name = "dtpdob";
             this.dtpdob.Size = new System.Drawing.Size(147, 20);
-            this.dtpdob.TabIndex = 10;
+            this.dtpdob.TabIndex = 12;
             this.dtpdob.Value = new System.DateTime(2021, 3, 18, 0, 49, 33, 0);
             // 
             // BtnSubmit
@@ -202,7 +202,7 @@ namespace BankSYS
             this.txtphoneno.MaxLength = 14;
             this.txtphoneno.Name = "txtphoneno";
             this.txtphoneno.Size = new System.Drawing.Size(143, 20);
-            this.txtphoneno.TabIndex = 14;
+            this.txtphoneno.TabIndex = 10;
             // 
             // txtlname
             // 
@@ -290,7 +290,7 @@ namespace BankSYS
             this.LblDOB.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.LblDOB.Name = "LblDOB";
             this.LblDOB.Size = new System.Drawing.Size(71, 13);
-            this.LblDOB.TabIndex = 9;
+            this.LblDOB.TabIndex = 11;
             this.LblDOB.Text = "Date Of Birth:";
             // 
             // LblPhoneNo
@@ -300,7 +300,7 @@ namespace BankSYS
             this.LblPhoneNo.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.LblPhoneNo.Name = "LblPhoneNo";
             this.LblPhoneNo.Size = new System.Drawing.Size(81, 13);
-            this.LblPhoneNo.TabIndex = 13;
+            this.LblPhoneNo.TabIndex = 9;
             this.LblPhoneNo.Text = "Phone Number:";
             // 
             // lblLname
@@ -331,7 +331,7 @@ namespace BankSYS
             this.cboCountryCode.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.cboCountryCode.Name = "cboCountryCode";
             this.cboCountryCode.Size = new System.Drawing.Size(174, 21);
-            this.cboCountryCode.TabIndex = 12;
+            this.cboCountryCode.TabIndex = 8;
             // 
             // lblCountryCode
             // 
@@ -340,7 +340,7 @@ namespace BankSYS
             this.lblCountryCode.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.lblCountryCode.Name = "lblCountryCode";
             this.lblCountryCode.Size = new System.Drawing.Size(74, 13);
-            this.lblCountryCode.TabIndex = 11;
+            this.lblCountryCode.TabIndex = 7;
             this.lblCountryCode.Text = "Country Code:";
             // 
             // groupBox1
@@ -382,25 +382,6 @@ namespace BankSYS
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address";
-            // 
-            // LblAddl3
-            // 
-            this.LblAddl3.AutoSize = true;
-            this.LblAddl3.Location = new System.Drawing.Point(105, 80);
-            this.LblAddl3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.LblAddl3.Name = "LblAddl3";
-            this.LblAddl3.Size = new System.Drawing.Size(80, 13);
-            this.LblAddl3.TabIndex = 21;
-            this.LblAddl3.Text = "Address Line 3:";
-            // 
-            // txtAddl3
-            // 
-            this.txtAddl3.Location = new System.Drawing.Point(198, 77);
-            this.txtAddl3.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.txtAddl3.MaxLength = 50;
-            this.txtAddl3.Name = "txtAddl3";
-            this.txtAddl3.Size = new System.Drawing.Size(143, 20);
-            this.txtAddl3.TabIndex = 22;
             // 
             // cboCounty
             // 
@@ -445,13 +426,32 @@ namespace BankSYS
             this.cboCounty.Size = new System.Drawing.Size(83, 21);
             this.cboCounty.TabIndex = 26;
             // 
+            // txtAddl3
+            // 
+            this.txtAddl3.Location = new System.Drawing.Point(198, 77);
+            this.txtAddl3.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.txtAddl3.MaxLength = 50;
+            this.txtAddl3.Name = "txtAddl3";
+            this.txtAddl3.Size = new System.Drawing.Size(143, 20);
+            this.txtAddl3.TabIndex = 22;
+            // 
+            // LblAddl3
+            // 
+            this.LblAddl3.AutoSize = true;
+            this.LblAddl3.Location = new System.Drawing.Point(105, 80);
+            this.LblAddl3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.LblAddl3.Name = "LblAddl3";
+            this.LblAddl3.Size = new System.Drawing.Size(80, 13);
+            this.LblAddl3.TabIndex = 21;
+            this.LblAddl3.Text = "Address Line 3:";
+            // 
             // errorprovider
             // 
             this.errorprovider.BlinkRate = 0;
             this.errorprovider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorprovider.ContainerControl = this;
             // 
-            // FrmRegesterUser
+            // FrmRegesterUserData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -461,7 +461,7 @@ namespace BankSYS
             this.Controls.Add(this.MnuCreateCustomer);
             this.Controls.Add(this.BtnSubmit);
             this.MainMenuStrip = this.MnuCreateCustomer;
-            this.Name = "FrmRegesterUser";
+            this.Name = "FrmRegesterUserData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Customer";
             this.Load += new System.EventHandler(this.FrmCreateAccount_Load);

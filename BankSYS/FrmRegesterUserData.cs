@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankSYS
@@ -48,7 +41,6 @@ namespace BankSYS
             Data.Eir = txteir.Text;
 
             //making things uppercase
-            Data.PPSNo = Data.PPSNo.ToUpper();
             Data.Eir = Data.Eir.ToUpper();
 
             errorprovider.Clear();
@@ -104,13 +96,16 @@ namespace BankSYS
                     Data.Eir = Data.Eir.Substring(0, 3) + " " + Data.Eir.Substring(3, 4);
                 }
                 Data.DateCreated = DateTime.Now.ToString("dd-MM-yyyy");
-                UserSQL.AddUser();
-                MessageBox.Show(Data.County + Data.CountryCode);
-
-                FrmStartScreen s = new FrmStartScreen();
-                s.Show();
-                this.Hide();
-
+               //try
+                //{
+                    Data.Lname = Data.Lname.Replace("'", "''");
+                    UserSQL.AddUser();
+                    
+                    MessageBox.Show("Your Customer ID is " + Data.Id + ". \nPlease use this to login");
+                    
+                    FrmStartScreen s = new FrmStartScreen();
+                    s.Show();
+                    this.Hide();
 
             }
         }
@@ -118,21 +113,32 @@ namespace BankSYS
         private void FrmCreateAccount_Load(object sender, EventArgs e)
         {
             dtpdob.MaxDate = DateTime.Today;
-
+            
             string[] countryarr = { "countryid", "CONCAT(country,CONCAT(' ',CONCAT('(',CONCAT(code,')')))) AS country", "country_code" };
             string[] countyarr = { "countyid", "county", "county" };
             DataSet countryds = new DataSet();
             DataSet countyds = new DataSet();
-            
+            try
+            {
             countryds = FillfromDB.dsfromsql(countryarr);
             cboCountryCode.ValueMember = "countryid";
             cboCountryCode.DisplayMember = "country";
             cboCountryCode.DataSource = countryds.Tables[0];
-            
+            }
+            catch
+            {
+                MessageBox.Show("Error 002: Could not connect to database. Please contact an administratior");
+            }
+            try { 
             countyds = FillfromDB.dsfromsql(countyarr);
             cboCounty.ValueMember = "countyid";
             cboCounty.DisplayMember = "county";
             cboCounty.DataSource = countyds.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("Error 003: Could not connect to database. Please contact an administratior");
+            }
         }
     }
 }

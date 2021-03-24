@@ -29,6 +29,13 @@ namespace BankSYS
             }
         }
 
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmStartScreen start = new FrmStartScreen();
+            start.Show();
+            this.Hide();
+        }
+
         private void FrmRegesterLoginData_Load(object sender, EventArgs e)
         {
             txtpacno1.Focus();
@@ -64,11 +71,10 @@ namespace BankSYS
             
             Data.PPSNo = txtppsno.Text;
             bool valid = true;
-            string puc = txtpacno1.Text + txtpacno2.Text + txtpacno3.Text + txtpacno4.Text + txtpacno5.Text;
+            Data.pac = txtpacno1.Text + txtpacno2.Text + txtpacno3.Text + txtpacno4.Text + txtpacno5.Text;
             Validation v = new Validation();
             errorProvider.Clear();
-
-            if (!v.IsNumeric(puc))
+            if (!v.IsNumeric(Data.pac))
             {
                 errorProvider.SetError(txtpacno5, "PAC must only contain numbers");
                 valid = false;
@@ -79,25 +85,37 @@ namespace BankSYS
                 valid = false;
             }
 
-            if(valid.Equals(true))
+            try
             {
-                try
+                if (valid.Equals(true))
                 {
-                    if(UserSQL.IsInUse(Data.PPSNo))
+                    Data.PPSNo = Data.PPSNo.ToUpper();
+
+                    if (UserSQL.IsInUse(Data.PPSNo))
                     {
                         MessageBox.Show("This PPS number is already regestered to an account.");
                     }
                     else
                     {
-                        
+                        FrmRegesterUserData Reg = new FrmRegesterUserData();
+                        Reg.Show();
+                        this.Hide();
                     }
-                }
-                catch
-                {
-                    MessageBox.Show("A Database Connection could not be established: Please contact an administer");
+
                 }
             }
+            catch
+            {
+                MessageBox.Show("Error 001: Could not connect to database. Please contact an administratior");
+            }
+        }
 
+        private void txtppsno_TextChanged(object sender, EventArgs e)
+        {
+            if(txtppsno.TextLength.Equals(9))
+            {
+                btnsubmit.Focus();
+            }
         }
     }
 }

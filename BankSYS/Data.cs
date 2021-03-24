@@ -8,7 +8,8 @@ namespace BankSYS
 {
     public static class Data
     {
-        public static int Id { get; set; }
+        public static string Id { get; set; }
+        public static string pac { get; set; }
         public static string Fname { get; set; }
         public static string Lname { get; set; }
         public static string PPSNo { get; set; }

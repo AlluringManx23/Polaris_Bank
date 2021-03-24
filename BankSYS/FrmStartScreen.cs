@@ -42,5 +42,17 @@ namespace BankSYS
             Close.Show();
             this.Hide();
         }
+
+        private void lnkRegesterCustomer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRegesterLoginData Reg = new FrmRegesterLoginData();
+            Reg.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

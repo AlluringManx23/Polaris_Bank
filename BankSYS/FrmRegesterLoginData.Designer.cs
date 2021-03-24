@@ -35,10 +35,10 @@ namespace BankSYS
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tblpacnum = new System.Windows.Forms.TableLayoutPanel();
-            this.txtpacno2 = new System.Windows.Forms.TextBox();
-            this.txtpacno3 = new System.Windows.Forms.TextBox();
-            this.txtpacno4 = new System.Windows.Forms.TextBox();
             this.txtpacno5 = new System.Windows.Forms.TextBox();
+            this.txtpacno4 = new System.Windows.Forms.TextBox();
+            this.txtpacno3 = new System.Windows.Forms.TextBox();
+            this.txtpacno2 = new System.Windows.Forms.TextBox();
             this.btnsubmit = new System.Windows.Forms.Button();
             this.lblpac = new System.Windows.Forms.Label();
             this.txtppsno = new System.Windows.Forms.TextBox();
@@ -81,6 +81,7 @@ namespace BankSYS
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
             this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.backToolStripMenuItem.Text = "Back";
+            this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -109,34 +110,22 @@ namespace BankSYS
             this.tblpacnum.Name = "tblpacnum";
             this.tblpacnum.RowCount = 1;
             this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tblpacnum.Size = new System.Drawing.Size(576, 46);
             this.tblpacnum.TabIndex = 2;
             // 
-            // txtpacno2
+            // txtpacno5
             // 
-            this.txtpacno2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtpacno2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno2.Location = new System.Drawing.Point(197, 7);
-            this.txtpacno2.MaxLength = 1;
-            this.txtpacno2.Name = "txtpacno2";
-            this.txtpacno2.PasswordChar = '*';
-            this.txtpacno2.Size = new System.Drawing.Size(16, 31);
-            this.txtpacno2.TabIndex = 4;
-            this.txtpacno2.TextChanged += new System.EventHandler(this.txtpacno2_TextChanged);
-            // 
-            // txtpacno3
-            // 
-            this.txtpacno3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtpacno3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno3.Location = new System.Drawing.Point(279, 7);
-            this.txtpacno3.MaxLength = 1;
-            this.txtpacno3.Name = "txtpacno3";
-            this.txtpacno3.PasswordChar = '*';
-            this.txtpacno3.Size = new System.Drawing.Size(16, 31);
-            this.txtpacno3.TabIndex = 5;
-            this.txtpacno3.TextChanged += new System.EventHandler(this.txtpacno3_TextChanged);
+            this.txtpacno5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtpacno5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpacno5.Location = new System.Drawing.Point(443, 7);
+            this.txtpacno5.MaxLength = 1;
+            this.txtpacno5.Name = "txtpacno5";
+            this.txtpacno5.PasswordChar = '*';
+            this.txtpacno5.Size = new System.Drawing.Size(16, 31);
+            this.txtpacno5.TabIndex = 7;
+            this.txtpacno5.TextChanged += new System.EventHandler(this.txtpacno5_TextChanged);
             // 
             // txtpacno4
             // 
@@ -150,17 +139,29 @@ namespace BankSYS
             this.txtpacno4.TabIndex = 6;
             this.txtpacno4.TextChanged += new System.EventHandler(this.txtpacno4_TextChanged);
             // 
-            // txtpacno5
+            // txtpacno3
             // 
-            this.txtpacno5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtpacno5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno5.Location = new System.Drawing.Point(443, 7);
-            this.txtpacno5.MaxLength = 1;
-            this.txtpacno5.Name = "txtpacno5";
-            this.txtpacno5.PasswordChar = '*';
-            this.txtpacno5.Size = new System.Drawing.Size(16, 31);
-            this.txtpacno5.TabIndex = 7;
-            this.txtpacno5.TextChanged += new System.EventHandler(this.txtpacno5_TextChanged);
+            this.txtpacno3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtpacno3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpacno3.Location = new System.Drawing.Point(279, 7);
+            this.txtpacno3.MaxLength = 1;
+            this.txtpacno3.Name = "txtpacno3";
+            this.txtpacno3.PasswordChar = '*';
+            this.txtpacno3.Size = new System.Drawing.Size(16, 31);
+            this.txtpacno3.TabIndex = 5;
+            this.txtpacno3.TextChanged += new System.EventHandler(this.txtpacno3_TextChanged);
+            // 
+            // txtpacno2
+            // 
+            this.txtpacno2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtpacno2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpacno2.Location = new System.Drawing.Point(197, 7);
+            this.txtpacno2.MaxLength = 1;
+            this.txtpacno2.Name = "txtpacno2";
+            this.txtpacno2.PasswordChar = '*';
+            this.txtpacno2.Size = new System.Drawing.Size(16, 31);
+            this.txtpacno2.TabIndex = 4;
+            this.txtpacno2.TextChanged += new System.EventHandler(this.txtpacno2_TextChanged);
             // 
             // btnsubmit
             // 
@@ -192,6 +193,7 @@ namespace BankSYS
             this.txtppsno.Name = "txtppsno";
             this.txtppsno.Size = new System.Drawing.Size(131, 31);
             this.txtppsno.TabIndex = 10;
+            this.txtppsno.TextChanged += new System.EventHandler(this.txtppsno_TextChanged);
             // 
             // lblppsno
             // 
