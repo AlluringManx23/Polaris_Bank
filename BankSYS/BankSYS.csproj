@@ -49,16 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserSQL.cs" />
-    <Compile Include="Data.cs" />
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="FillfromDB.cs" />
-    <Compile Include="FrmCloseAccount.cs">
+    <Compile Include="Account.cs" />
+    <Compile Include="FrmDisplayAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCloseAccount.Designer.cs">
-      <DependentUpon>FrmCloseAccount.cs</DependentUpon>
+    <Compile Include="FrmDisplayAccounts.Designer.cs">
+      <DependentUpon>FrmDisplayAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSQL.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="DBConnect.cs" />
+    <Compile Include="FillfromDB.cs" />
     <Compile Include="FrmRegesterUserData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,8 +81,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation.cs" />
-    <EmbeddedResource Include="FrmCloseAccount.resx">
-      <DependentUpon>FrmCloseAccount.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDisplayAccounts.resx">
+      <DependentUpon>FrmDisplayAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegesterUserData.resx">
       <DependentUpon>FrmRegesterUserData.cs</DependentUpon>

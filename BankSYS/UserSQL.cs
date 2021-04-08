@@ -44,10 +44,10 @@ namespace BankSYS
             
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            Data.Id = GetNextId(Cust).ToString("D8");
+            Customer.CustomerId = GetNextId(Cust).ToString("D8");
             
             String CustSQL = "INSERT INTO Customer(Customerid,first_name,last_name,pps_number,country_code,phone_number,date_of_birth,address_line_1,address_line_2,address_line_3,town,county,eircode,date_created) " +
-            "VALUES('" + Data.Id + "', '" + Data.Fname + "', '" + Data.Lname + "', '" + Data.PPSNo + "', '" + Data.CountryCode + "', '" + Data.PhoneNo + "', TO_DATE('" + Data.DOB + "', 'DD/MM/YYYY'), '" + Data.AddressL1 + "', '" + Data.AddressL2 + "', '" + Data.AddressL3 + "', '" + Data.Town + "', '" + Data.County + "', '" + Data.Eir + "', TO_DATE('" + Data.DateCreated + "', 'DD/MM/YYYY'))";
+            "VALUES('" + Customer.CustomerId + "', '" + Customer.Fname + "', '" + Customer.Lname + "', '" + Customer.PPSNo + "', '" + Customer.CountryCode + "', '" + Customer.PhoneNo + "', TO_DATE('" + Customer.DOB + "', 'DD/MM/YYYY'), '" + Customer.AddressL1 + "', '" + Customer.AddressL2 + "', '" + Customer.AddressL3 + "', '" + Customer.Town + "', '" + Customer.County + "', '" + Customer.Eir + "', TO_DATE('" + Customer.DateCreated + "', 'DD/MM/YYYY'))";
 
             OracleCommand Custcmd = new OracleCommand(CustSQL, conn);
             Custcmd.ExecuteNonQuery();
@@ -55,7 +55,7 @@ namespace BankSYS
             string LogId = GetNextId(Log).ToString("D8");
 
             String LogSQL = "INSERT INTO Login(Loginid,Customerid,pac) " +
-            "VALUES('" + LogId + "', '" + Data.Id + "', '" + Data.pac + "')";
+            "VALUES('" + LogId + "', '" + Customer.CustomerId + "', '" + Customer.PAC + "')";
 
             OracleCommand Logcmd = new OracleCommand(LogSQL, conn);
             Logcmd.ExecuteNonQuery();
@@ -63,6 +63,52 @@ namespace BankSYS
             conn.Close();
         }
 
+        public static bool Login(string s, string k)
+        {
+            //define Sql Query
+            String strSQL = "SELECT Customerid,pac FROM Login where CustomerID = " + s;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+            if (dr.HasRows)
+            {
+                if (dr[1].Equals(k))
+                {
+                    GetCustName(s);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void GetCustName(string s)
+        {
+            //define Sql Query
+            String strSQL = "SELECT first_name,last_name FROM Customer where CustomerID = " + s;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+            Customer.Fname = dr[0].ToString();
+            Customer.Lname = dr[1].ToString();
+
+    }
         public static DataSet GetUser()
         {
             //define Sql Query

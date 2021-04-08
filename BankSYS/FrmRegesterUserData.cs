@@ -11,7 +11,7 @@ namespace BankSYS
             InitializeComponent();
         }
 
-        private void MnuClose_Click(object sender, EventArgs e)
+        private void MnuExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
@@ -28,59 +28,59 @@ namespace BankSYS
             Validation v = new Validation();
             bool valid = true;
 
-            Data.Fname = txtfname.Text;
-            Data.Lname = txtlname.Text;
-            Data.CountryCode = cboCountryCode.SelectedValue.ToString();
-            Data.PhoneNo = txtphoneno.Text;
-            Data.DOB = dtpdob.Value.ToString("dd-MM-yyyy");
-            Data.AddressL1 = txtAddl1.Text;
-            Data.AddressL2 = txtAddl2.Text;
-            Data.AddressL3 = txtAddl3.Text;
-            Data.County = cboCounty.SelectedValue.ToString();
-            Data.Town = txttown.Text;
-            Data.Eir = txteir.Text;
+            Customer.Fname = txtfname.Text;
+            Customer.Lname = txtlname.Text;
+            Customer.CountryCode = cboCountryCode.SelectedValue.ToString();
+            Customer.PhoneNo = txtphoneno.Text;
+            Customer.DOB = dtpdob.Value.ToString("dd-MM-yyyy");
+            Customer.AddressL1 = txtAddl1.Text;
+            Customer.AddressL2 = txtAddl2.Text;
+            Customer.AddressL3 = txtAddl3.Text;
+            Customer.County = cboCounty.SelectedValue.ToString();
+            Customer.Town = txttown.Text;
+            Customer.Eir = txteir.Text;
 
             //making things uppercase
-            Data.Eir = Data.Eir.ToUpper();
+            Customer.Eir = Customer.Eir.ToUpper();
 
             errorprovider.Clear();
 
-            if (!v.IsAlphabeticNoSpace(Data.Fname))
+            if (!v.IsAlphabeticNoSpace(Customer.Fname))
             {
                 errorprovider.SetError(txtfname, "First name must only contain letters");
                 valid = false;
             }
-            if (!v.IsAlphabeticNoSpace(Data.Lname))
+            if (!v.IsAlphabeticNoSpace(Customer.Lname))
             {
                 errorprovider.SetError(txtlname, "Last name must only contain letters");
                 valid = false;
             }
-            if (!v.IsNumeric(Data.PhoneNo))
+            if (!v.IsNumeric(Customer.PhoneNo))
             {
                 errorprovider.SetError(txtphoneno, "phone number must only contain numbers");
                 valid = false;
             }
-            if (v.IsEmpty(Data.CountryCode))
+            if (v.IsEmpty(Customer.CountryCode))
             {
                 errorprovider.SetError(cboCountryCode, "Please select a country code");
                 valid = false;
             }
-            if (v.IsEmpty(Data.AddressL1))
+            if (v.IsEmpty(Customer.AddressL1))
             {
                 errorprovider.SetError(txtAddl1, "Please enter an address");
                 valid = false;
             }
-            if (v.IsEmpty(Data.County))
+            if (v.IsEmpty(Customer.County))
             {
                 errorprovider.SetError(cboCounty, "Please select a county");
                 valid = false;
             }
-            if (!v.IsAlphabetic(Data.Town))
+            if (!v.IsAlphabetic(Customer.Town))
             {
                 errorprovider.SetError(txttown, "Town must only be alphabetic");
                 valid = false;
             }
-            if (!v.IsEir(Data.Eir))
+            if (!v.IsEir(Customer.Eir))
             {
                 errorprovider.SetError(txteir, "Please enter a valid eircode");
                 valid = false;
@@ -88,24 +88,29 @@ namespace BankSYS
 
             if (valid.Equals(true))
             {
-                Data.Fname = char.ToUpper(Data.Fname[0]) + Data.Fname.Substring(1);
-                Data.Lname = char.ToUpper(Data.Lname[0]) + Data.Lname.Substring(1);
+                Customer.Fname = char.ToUpper(Customer.Fname[0]) + Customer.Fname.Substring(1);
+                Customer.Lname = char.ToUpper(Customer.Lname[0]) + Customer.Lname.Substring(1);
 
-                if (!Data.Eir.Contains(" "))
+                if (!Customer.Eir.Contains(" "))
                 {
-                    Data.Eir = Data.Eir.Substring(0, 3) + " " + Data.Eir.Substring(3, 4);
+                    Customer.Eir = Customer.Eir.Substring(0, 3) + " " + Customer.Eir.Substring(3, 4);
                 }
-                Data.DateCreated = DateTime.Now.ToString("dd-MM-yyyy");
-               //try
-                //{
-                    Data.Lname = Data.Lname.Replace("'", "''");
+                Customer.DateCreated = DateTime.Now.ToString("dd-MM-yyyy");
+                try
+                {
+                    Customer.Lname = Customer.Lname.Replace("'", "''");
                     UserSQL.AddUser();
-                    
-                    MessageBox.Show("Your Customer ID is " + Data.Id + ". \nPlease use this to login");
-                    
+
+                    MessageBox.Show("Your Customer ID is " + Customer.CustomerId + ". \nPlease use this to login");
+
                     FrmStartScreen s = new FrmStartScreen();
                     s.Show();
                     this.Hide();
+                }
+                catch
+                {
+                    MessageBox.Show("Error 004: Could not connect to database. Please contact an administratior");
+                }
 
             }
         }
@@ -139,6 +144,13 @@ namespace BankSYS
             {
                 MessageBox.Show("Error 003: Could not connect to database. Please contact an administratior");
             }
+        }
+
+        private void MnuBack_Click(object sender, EventArgs e)
+        {
+            FrmRegesterLoginData Reg = new FrmRegesterLoginData();
+            Reg.Show();
+            this.Hide();
         }
     }
 }

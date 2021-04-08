@@ -33,7 +33,7 @@ namespace BankSYS
             this.txtpacno1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tblpacnum = new System.Windows.Forms.TableLayoutPanel();
             this.txtpacno5 = new System.Windows.Forms.TextBox();
             this.txtpacno4 = new System.Windows.Forms.TextBox();
@@ -69,7 +69,7 @@ namespace BankSYS
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.MnuExit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(576, 24);
@@ -83,13 +83,13 @@ namespace BankSYS
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // MnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.MnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.MnuExit.Name = "MnuExit";
+            this.MnuExit.Size = new System.Drawing.Size(38, 20);
+            this.MnuExit.Text = "Exit";
+            this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
             // 
             // tblpacnum
             // 
@@ -282,7 +282,7 @@ namespace BankSYS
         private System.Windows.Forms.TextBox txtpacno1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuExit;
         private System.Windows.Forms.TableLayoutPanel tblpacnum;
         private System.Windows.Forms.TextBox txtpacno2;
         private System.Windows.Forms.TextBox txtpacno3;

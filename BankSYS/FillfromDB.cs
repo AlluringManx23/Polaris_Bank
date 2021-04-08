@@ -46,7 +46,7 @@ namespace BankSYS
             //Declare DataSet to return records to application
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "WS");
+            da.Fill(ds, "FS");
 
             //Close database connection
             conn.Close();

@@ -17,7 +17,7 @@ namespace BankSYS
             InitializeComponent();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MnuExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
@@ -38,6 +38,15 @@ namespace BankSYS
 
         private void FrmRegesterLoginData_Load(object sender, EventArgs e)
         {
+            if(Customer.PPSNo != null)
+            {
+                txtppsno.Text = Customer.PPSNo;
+                txtpacno1.Text = Customer.PAC.Substring(0, 1);
+                txtpacno2.Text = Customer.PAC.Substring(1, 1);
+                txtpacno3.Text = Customer.PAC.Substring(2, 1);
+                txtpacno4.Text = Customer.PAC.Substring(3, 1);
+                txtpacno5.Text = Customer.PAC.Substring(4, 1);
+            }
             txtpacno1.Focus();
         }
 
@@ -69,17 +78,17 @@ namespace BankSYS
         private void btnsubmit_Click(object sender, EventArgs e)
         {
             
-            Data.PPSNo = txtppsno.Text;
+            Customer.PPSNo = txtppsno.Text;
             bool valid = true;
-            Data.pac = txtpacno1.Text + txtpacno2.Text + txtpacno3.Text + txtpacno4.Text + txtpacno5.Text;
+            Customer.PAC = txtpacno1.Text + txtpacno2.Text + txtpacno3.Text + txtpacno4.Text + txtpacno5.Text;
             Validation v = new Validation();
             errorProvider.Clear();
-            if (!v.IsNumeric(Data.pac))
+            if (!v.IsNumeric(Customer.PAC))
             {
                 errorProvider.SetError(txtpacno5, "PAC must only contain numbers");
                 valid = false;
             }
-            if(!v.IsPPS(Data.PPSNo))
+            if(!v.IsPPS(Customer.PPSNo))
             {
                 errorProvider.SetError(txtppsno, "Please enter a valid pps number");
                 valid = false;
@@ -89,9 +98,9 @@ namespace BankSYS
             {
                 if (valid.Equals(true))
                 {
-                    Data.PPSNo = Data.PPSNo.ToUpper();
+                    Customer.PPSNo = Customer.PPSNo.ToUpper();
 
-                    if (UserSQL.IsInUse(Data.PPSNo))
+                    if (UserSQL.IsInUse(Customer.PPSNo))
                     {
                         MessageBox.Show("This PPS number is already regestered to an account.");
                     }

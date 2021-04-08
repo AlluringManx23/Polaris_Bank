@@ -31,15 +31,7 @@ namespace BankSYS
         {
             this.components = new System.ComponentModel.Container();
             this.MnuCreateCustomer = new System.Windows.Forms.MenuStrip();
-            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuCreateAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuUpdateAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuCloseAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.moneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuDeposit = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuWithdraw = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuTransfer = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpdob = new System.Windows.Forms.DateTimePicker();
             this.BtnSubmit = new System.Windows.Forms.Button();
             this.txteir = new System.Windows.Forms.TextBox();
@@ -66,6 +58,7 @@ namespace BankSYS
             this.txtAddl3 = new System.Windows.Forms.TextBox();
             this.LblAddl3 = new System.Windows.Forms.Label();
             this.errorprovider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.MnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuCreateCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,78 +68,21 @@ namespace BankSYS
             // MnuCreateCustomer
             // 
             this.MnuCreateCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.accountToolStripMenuItem,
-            this.moneyToolStripMenuItem,
-            this.MnuClose});
+            this.MnuExit,
+            this.MnuBack});
             this.MnuCreateCustomer.Location = new System.Drawing.Point(0, 0);
             this.MnuCreateCustomer.Name = "MnuCreateCustomer";
             this.MnuCreateCustomer.Size = new System.Drawing.Size(800, 24);
             this.MnuCreateCustomer.TabIndex = 0;
             this.MnuCreateCustomer.Text = "menuStrip1";
             // 
-            // accountToolStripMenuItem
+            // MnuExit
             // 
-            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuCreateAccount,
-            this.MnuUpdateAccount,
-            this.MnuCloseAccount});
-            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.accountToolStripMenuItem.Text = "Account";
-            // 
-            // MnuCreateAccount
-            // 
-            this.MnuCreateAccount.Name = "MnuCreateAccount";
-            this.MnuCreateAccount.Size = new System.Drawing.Size(160, 22);
-            this.MnuCreateAccount.Text = "Create Account";
-            // 
-            // MnuUpdateAccount
-            // 
-            this.MnuUpdateAccount.Name = "MnuUpdateAccount";
-            this.MnuUpdateAccount.Size = new System.Drawing.Size(160, 22);
-            this.MnuUpdateAccount.Text = "Update Account";
-            // 
-            // MnuCloseAccount
-            // 
-            this.MnuCloseAccount.Name = "MnuCloseAccount";
-            this.MnuCloseAccount.Size = new System.Drawing.Size(160, 22);
-            this.MnuCloseAccount.Text = "Close Account";
-            // 
-            // moneyToolStripMenuItem
-            // 
-            this.moneyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuDeposit,
-            this.MnuWithdraw,
-            this.MnuTransfer});
-            this.moneyToolStripMenuItem.Name = "moneyToolStripMenuItem";
-            this.moneyToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.moneyToolStripMenuItem.Text = "Money";
-            // 
-            // MnuDeposit
-            // 
-            this.MnuDeposit.Name = "MnuDeposit";
-            this.MnuDeposit.Size = new System.Drawing.Size(125, 22);
-            this.MnuDeposit.Text = "Deposit";
-            // 
-            // MnuWithdraw
-            // 
-            this.MnuWithdraw.Name = "MnuWithdraw";
-            this.MnuWithdraw.Size = new System.Drawing.Size(125, 22);
-            this.MnuWithdraw.Text = "Withdraw";
-            // 
-            // MnuTransfer
-            // 
-            this.MnuTransfer.Name = "MnuTransfer";
-            this.MnuTransfer.Size = new System.Drawing.Size(125, 22);
-            this.MnuTransfer.Text = "Transfer";
-            // 
-            // MnuClose
-            // 
-            this.MnuClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MnuClose.Name = "MnuClose";
-            this.MnuClose.Size = new System.Drawing.Size(48, 20);
-            this.MnuClose.Text = "Close";
-            this.MnuClose.Click += new System.EventHandler(this.MnuClose_Click);
+            this.MnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.MnuExit.Name = "MnuExit";
+            this.MnuExit.Size = new System.Drawing.Size(38, 20);
+            this.MnuExit.Text = "Exit";
+            this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
             // 
             // dtpdob
             // 
@@ -451,6 +387,13 @@ namespace BankSYS
             this.errorprovider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorprovider.ContainerControl = this;
             // 
+            // MnuBack
+            // 
+            this.MnuBack.Name = "MnuBack";
+            this.MnuBack.Size = new System.Drawing.Size(44, 20);
+            this.MnuBack.Text = "Back";
+            this.MnuBack.Click += new System.EventHandler(this.MnuBack_Click);
+            // 
             // FrmRegesterUserData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,15 +423,7 @@ namespace BankSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip MnuCreateCustomer;
-        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MnuCreateAccount;
-        private System.Windows.Forms.ToolStripMenuItem moneyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MnuDeposit;
-        private System.Windows.Forms.ToolStripMenuItem MnuWithdraw;
-        private System.Windows.Forms.ToolStripMenuItem MnuTransfer;
-        private System.Windows.Forms.ToolStripMenuItem MnuUpdateAccount;
-        private System.Windows.Forms.ToolStripMenuItem MnuCloseAccount;
-        private System.Windows.Forms.ToolStripMenuItem MnuClose;
+        private System.Windows.Forms.ToolStripMenuItem MnuExit;
         private System.Windows.Forms.DateTimePicker dtpdob;
         private System.Windows.Forms.Button BtnSubmit;
         private System.Windows.Forms.TextBox txteir;
@@ -515,5 +450,6 @@ namespace BankSYS
         private System.Windows.Forms.Label lblCountryCode;
         private System.Windows.Forms.Label LblAddl3;
         private System.Windows.Forms.TextBox txtAddl3;
+        private System.Windows.Forms.ToolStripMenuItem MnuBack;
     }
 }

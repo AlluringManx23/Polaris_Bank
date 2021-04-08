@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BankSYS
 {
-    public static class Data
+    public static class Customer
     {
-        public static string Id { get; set; }
-        public static string pac { get; set; }
+        public static string CustomerId { get; set; }
+        public static string PAC { get; set; }
         public static string Fname { get; set; }
         public static string Lname { get; set; }
         public static string PPSNo { get; set; }
@@ -23,10 +23,6 @@ namespace BankSYS
         public static string County { get; set; }
         public static string Eir { get; set; }
         public static string DateCreated { get; set; }
-
-
-
-
 
     }
 }

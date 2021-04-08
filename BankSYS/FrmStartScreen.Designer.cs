@@ -29,39 +29,42 @@ namespace BankSYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MnuStartScreen = new System.Windows.Forms.MenuStrip();
-            this.MnuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.lblName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCustId = new System.Windows.Forms.Label();
             this.lblPUC = new System.Windows.Forms.Label();
             this.lnkRegesterCustomer = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCustomerid = new System.Windows.Forms.TextBox();
+            this.txtPUC = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.MnuStartScreen.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // MnuStartScreen
             // 
             this.MnuStartScreen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuClose});
+            this.MnuExit});
             this.MnuStartScreen.Location = new System.Drawing.Point(0, 0);
             this.MnuStartScreen.Name = "MnuStartScreen";
             this.MnuStartScreen.Size = new System.Drawing.Size(800, 24);
             this.MnuStartScreen.TabIndex = 0;
             this.MnuStartScreen.Text = "menuStrip1";
             // 
-            // MnuClose
+            // MnuExit
             // 
-            this.MnuClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MnuClose.Name = "MnuClose";
-            this.MnuClose.Size = new System.Drawing.Size(48, 20);
-            this.MnuClose.Text = "Close";
-            this.MnuClose.Click += new System.EventHandler(this.MnuClose_Click);
+            this.MnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.MnuExit.Name = "MnuExit";
+            this.MnuExit.Size = new System.Drawing.Size(38, 20);
+            this.MnuExit.Text = "Exit";
+            this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
             // 
             // lblName
             // 
@@ -122,21 +125,21 @@ namespace BankSYS
             this.lnkRegesterCustomer.Text = "Not Regestered yet? click here";
             this.lnkRegesterCustomer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRegesterCustomer_LinkClicked);
             // 
-            // textBox1
+            // txtCustomerid
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(364, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
+            this.txtCustomerid.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtCustomerid.Location = new System.Drawing.Point(364, 67);
+            this.txtCustomerid.Name = "txtCustomerid";
+            this.txtCustomerid.Size = new System.Drawing.Size(100, 20);
+            this.txtCustomerid.TabIndex = 6;
             // 
-            // textBox2
+            // txtPUC
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Location = new System.Drawing.Point(364, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtPUC.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPUC.Location = new System.Drawing.Point(364, 117);
+            this.txtPUC.Name = "txtPUC";
+            this.txtPUC.Size = new System.Drawing.Size(100, 20);
+            this.txtPUC.TabIndex = 7;
             // 
             // button1
             // 
@@ -156,8 +159,8 @@ namespace BankSYS
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.875F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Controls.Add(this.lblCustId, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtCustomerid, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtPUC, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.lblPUC, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.lnkRegesterCustomer, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.button1, 2, 4);
@@ -173,6 +176,12 @@ namespace BankSYS
             this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 308);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 0;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
             // FrmStartScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,16 +190,21 @@ namespace BankSYS
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.MnuStartScreen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.MnuStartScreen;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmStartScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Polaris Bank - Start screen";
+            this.Load += new System.EventHandler(this.FrmStartScreen_Load);
             this.MnuStartScreen.ResumeLayout(false);
             this.MnuStartScreen.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,16 +213,17 @@ namespace BankSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip MnuStartScreen;
-        private System.Windows.Forms.ToolStripMenuItem MnuClose;
+        private System.Windows.Forms.ToolStripMenuItem MnuExit;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblCustId;
         private System.Windows.Forms.Label lblPUC;
         private System.Windows.Forms.LinkLabel lnkRegesterCustomer;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCustomerid;
+        private System.Windows.Forms.TextBox txtPUC;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 
