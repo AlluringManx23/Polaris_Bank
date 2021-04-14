@@ -31,7 +31,7 @@ namespace BankSYS
         {
             this.components = new System.ComponentModel.Container();
             this.txtpacno1 = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MnuRegisterUserLogin = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tblpacnum = new System.Windows.Forms.TableLayoutPanel();
@@ -46,7 +46,7 @@ namespace BankSYS
             this.tblpac = new System.Windows.Forms.TableLayoutPanel();
             this.tblppsno = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.MnuRegisterUserLogin.SuspendLayout();
             this.tblpacnum.SuspendLayout();
             this.tblpac.SuspendLayout();
             this.tblppsno.SuspendLayout();
@@ -65,16 +65,16 @@ namespace BankSYS
             this.txtpacno1.TabIndex = 3;
             this.txtpacno1.TextChanged += new System.EventHandler(this.txtpacno1_TextChanged);
             // 
-            // menuStrip1
+            // MnuRegisterUserLogin
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuRegisterUserLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backToolStripMenuItem,
             this.MnuExit});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(576, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MnuRegisterUserLogin.Location = new System.Drawing.Point(0, 0);
+            this.MnuRegisterUserLogin.Name = "MnuRegisterUserLogin";
+            this.MnuRegisterUserLogin.Size = new System.Drawing.Size(576, 24);
+            this.MnuRegisterUserLogin.TabIndex = 1;
+            this.MnuRegisterUserLogin.Text = "menuStrip1";
             // 
             // backToolStripMenuItem
             // 
@@ -258,13 +258,13 @@ namespace BankSYS
             this.Controls.Add(this.tblppsno);
             this.Controls.Add(this.tblpac);
             this.Controls.Add(this.tblpacnum);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.MnuRegisterUserLogin);
+            this.MainMenuStrip = this.MnuRegisterUserLogin;
             this.Name = "FrmRegesterLoginData";
-            this.Text = "FrmSignup";
+            this.Text = "Register Login";
             this.Load += new System.EventHandler(this.FrmRegesterLoginData_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MnuRegisterUserLogin.ResumeLayout(false);
+            this.MnuRegisterUserLogin.PerformLayout();
             this.tblpacnum.ResumeLayout(false);
             this.tblpacnum.PerformLayout();
             this.tblpac.ResumeLayout(false);
@@ -280,7 +280,7 @@ namespace BankSYS
         #endregion
 
         private System.Windows.Forms.TextBox txtpacno1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MnuRegisterUserLogin;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MnuExit;
         private System.Windows.Forms.TableLayoutPanel tblpacnum;

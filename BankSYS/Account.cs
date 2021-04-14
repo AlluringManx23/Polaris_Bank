@@ -8,6 +8,6 @@ namespace BankSYS
 {
     class Account
     {
-        pub
+        
     }
 }

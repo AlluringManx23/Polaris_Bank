@@ -34,15 +34,19 @@ namespace BankSYS
             this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.depositToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferBetweenAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferBetweenAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblNoAcc = new System.Windows.Forms.Label();
+            this.lnkRegesterAccount = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblname
@@ -85,36 +89,8 @@ namespace BankSYS
             // updateDetailsToolStripMenuItem
             // 
             this.updateDetailsToolStripMenuItem.Name = "updateDetailsToolStripMenuItem";
-            this.updateDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateDetailsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.updateDetailsToolStripMenuItem.Text = "Update Details";
-            // 
-            // transactionsToolStripMenuItem
-            // 
-            this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.depositToolStripMenuItem,
-            this.depositToolStripMenuItem1,
-            this.transferBetweenAccountsToolStripMenuItem});
-            this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.transactionsToolStripMenuItem.Text = "Transactions";
-            // 
-            // depositToolStripMenuItem
-            // 
-            this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-            this.depositToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.depositToolStripMenuItem.Text = "Withdraw";
-            // 
-            // depositToolStripMenuItem1
-            // 
-            this.depositToolStripMenuItem1.Name = "depositToolStripMenuItem1";
-            this.depositToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
-            this.depositToolStripMenuItem1.Text = "Deposit";
-            // 
-            // transferBetweenAccountsToolStripMenuItem
-            // 
-            this.transferBetweenAccountsToolStripMenuItem.Name = "transferBetweenAccountsToolStripMenuItem";
-            this.transferBetweenAccountsToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.transferBetweenAccountsToolStripMenuItem.Text = "Transfer Between Accounts";
             // 
             // accountsToolStripMenuItem
             // 
@@ -144,11 +120,84 @@ namespace BankSYS
             this.transferAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.transferAccountToolStripMenuItem.Text = "Transfer Account";
             // 
+            // transactionsToolStripMenuItem
+            // 
+            this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.depositToolStripMenuItem,
+            this.depositToolStripMenuItem1,
+            this.transferBetweenAccountsToolStripMenuItem});
+            this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.transactionsToolStripMenuItem.Text = "Transactions";
+            // 
+            // depositToolStripMenuItem
+            // 
+            this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.depositToolStripMenuItem.Text = "Withdraw";
+            // 
+            // depositToolStripMenuItem1
+            // 
+            this.depositToolStripMenuItem1.Name = "depositToolStripMenuItem1";
+            this.depositToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
+            this.depositToolStripMenuItem1.Text = "Deposit";
+            // 
+            // transferBetweenAccountsToolStripMenuItem
+            // 
+            this.transferBetweenAccountsToolStripMenuItem.Name = "transferBetweenAccountsToolStripMenuItem";
+            this.transferBetweenAccountsToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.transferBetweenAccountsToolStripMenuItem.Text = "Transfer Between Accounts";
+            // 
+            // LblNoAcc
+            // 
+            this.LblNoAcc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblNoAcc.AutoSize = true;
+            this.LblNoAcc.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LblNoAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNoAcc.Location = new System.Drawing.Point(89, 109);
+            this.LblNoAcc.Name = "LblNoAcc";
+            this.LblNoAcc.Size = new System.Drawing.Size(621, 31);
+            this.LblNoAcc.TabIndex = 2;
+            this.LblNoAcc.Text = "You do not currently have an open account with us";
+            // 
+            // lnkRegesterAccount
+            // 
+            this.lnkRegesterAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lnkRegesterAccount.AutoSize = true;
+            this.lnkRegesterAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkRegesterAccount.Location = new System.Drawing.Point(169, 272);
+            this.lnkRegesterAccount.Name = "lnkRegesterAccount";
+            this.lnkRegesterAccount.Size = new System.Drawing.Size(462, 37);
+            this.lnkRegesterAccount.TabIndex = 3;
+            this.lnkRegesterAccount.TabStop = true;
+            this.lnkRegesterAccount.Text = "Click here to create an Account";
+            this.lnkRegesterAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRegesterAccount_LinkClicked);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.lnkRegesterAccount, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.LblNoAcc, 1, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 27);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 418);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
             // FrmDisplayAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 445);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblname);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -157,6 +206,8 @@ namespace BankSYS
             this.Load += new System.EventHandler(this.FrmDisplayAccounts_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +228,8 @@ namespace BankSYS
         private System.Windows.Forms.ToolStripMenuItem transferAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depositToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem transferBetweenAccountsToolStripMenuItem;
+        private System.Windows.Forms.Label LblNoAcc;
+        private System.Windows.Forms.LinkLabel lnkRegesterAccount;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -125,5 +125,20 @@ namespace BankSYS
             return empty;
         }
 
+        public Boolean IsAccount(string s)
+        {
+            Boolean alphabetic;
+            Regex r = new Regex("^[a-zA-Z0-9' ]+$");
+            if (r.IsMatch(s))
+            {
+                alphabetic = true;
+            }
+            else
+            {
+                alphabetic = false;
+            }
+            return alphabetic;
+        }
+
     }
 }

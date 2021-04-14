@@ -30,8 +30,9 @@ namespace BankSYS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.MnuCreateCustomer = new System.Windows.Forms.MenuStrip();
+            this.MnuRegisterUserData = new System.Windows.Forms.MenuStrip();
             this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpdob = new System.Windows.Forms.DateTimePicker();
             this.BtnSubmit = new System.Windows.Forms.Button();
             this.txteir = new System.Windows.Forms.TextBox();
@@ -58,23 +59,22 @@ namespace BankSYS
             this.txtAddl3 = new System.Windows.Forms.TextBox();
             this.LblAddl3 = new System.Windows.Forms.Label();
             this.errorprovider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.MnuBack = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuCreateCustomer.SuspendLayout();
+            this.MnuRegisterUserData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorprovider)).BeginInit();
             this.SuspendLayout();
             // 
-            // MnuCreateCustomer
+            // MnuRegisterUserData
             // 
-            this.MnuCreateCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuRegisterUserData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuExit,
             this.MnuBack});
-            this.MnuCreateCustomer.Location = new System.Drawing.Point(0, 0);
-            this.MnuCreateCustomer.Name = "MnuCreateCustomer";
-            this.MnuCreateCustomer.Size = new System.Drawing.Size(800, 24);
-            this.MnuCreateCustomer.TabIndex = 0;
-            this.MnuCreateCustomer.Text = "menuStrip1";
+            this.MnuRegisterUserData.Location = new System.Drawing.Point(0, 0);
+            this.MnuRegisterUserData.Name = "MnuRegisterUserData";
+            this.MnuRegisterUserData.Size = new System.Drawing.Size(800, 24);
+            this.MnuRegisterUserData.TabIndex = 0;
+            this.MnuRegisterUserData.Text = "menuStrip1";
             // 
             // MnuExit
             // 
@@ -83,6 +83,13 @@ namespace BankSYS
             this.MnuExit.Size = new System.Drawing.Size(38, 20);
             this.MnuExit.Text = "Exit";
             this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
+            // 
+            // MnuBack
+            // 
+            this.MnuBack.Name = "MnuBack";
+            this.MnuBack.Size = new System.Drawing.Size(44, 20);
+            this.MnuBack.Text = "Back";
+            this.MnuBack.Click += new System.EventHandler(this.MnuBack_Click);
             // 
             // dtpdob
             // 
@@ -323,39 +330,6 @@ namespace BankSYS
             // 
             this.cboCounty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCounty.FormattingEnabled = true;
-            this.cboCounty.Items.AddRange(new object[] {
-            "Antrim",
-            "Armagh",
-            "Carlow",
-            "Cavan",
-            "Clare",
-            "Cork",
-            "Derry",
-            "Donegal",
-            "Down",
-            "Dublin",
-            "Fermanagh",
-            "Galway",
-            "Kerry",
-            "Kildare",
-            "Kilkenny",
-            "Laois",
-            "Leitrim",
-            "Limerick",
-            "Longford",
-            "Louth",
-            "Mayo",
-            "Meath",
-            "Monaghan",
-            "Offaly",
-            "Roscommon",
-            "Sligo",
-            "Tipperary",
-            "Tyrone",
-            "Waterford",
-            "Westmeath",
-            "Wexford",
-            "Wicklow"});
             this.cboCounty.Location = new System.Drawing.Point(198, 122);
             this.cboCounty.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.cboCounty.Name = "cboCounty";
@@ -387,13 +361,6 @@ namespace BankSYS
             this.errorprovider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorprovider.ContainerControl = this;
             // 
-            // MnuBack
-            // 
-            this.MnuBack.Name = "MnuBack";
-            this.MnuBack.Size = new System.Drawing.Size(44, 20);
-            this.MnuBack.Text = "Back";
-            this.MnuBack.Click += new System.EventHandler(this.MnuBack_Click);
-            // 
             // FrmRegesterUserData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,15 +368,15 @@ namespace BankSYS
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.MnuCreateCustomer);
+            this.Controls.Add(this.MnuRegisterUserData);
             this.Controls.Add(this.BtnSubmit);
-            this.MainMenuStrip = this.MnuCreateCustomer;
+            this.MainMenuStrip = this.MnuRegisterUserData;
             this.Name = "FrmRegesterUserData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Customer";
             this.Load += new System.EventHandler(this.FrmCreateAccount_Load);
-            this.MnuCreateCustomer.ResumeLayout(false);
-            this.MnuCreateCustomer.PerformLayout();
+            this.MnuRegisterUserData.ResumeLayout(false);
+            this.MnuRegisterUserData.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -422,7 +389,7 @@ namespace BankSYS
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip MnuCreateCustomer;
+        private System.Windows.Forms.MenuStrip MnuRegisterUserData;
         private System.Windows.Forms.ToolStripMenuItem MnuExit;
         private System.Windows.Forms.DateTimePicker dtpdob;
         private System.Windows.Forms.Button BtnSubmit;

@@ -129,6 +129,7 @@ namespace BankSYS
             // 
             this.txtCustomerid.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCustomerid.Location = new System.Drawing.Point(364, 67);
+            this.txtCustomerid.MaxLength = 8;
             this.txtCustomerid.Name = "txtCustomerid";
             this.txtCustomerid.Size = new System.Drawing.Size(100, 20);
             this.txtCustomerid.TabIndex = 6;
@@ -137,7 +138,9 @@ namespace BankSYS
             // 
             this.txtPUC.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtPUC.Location = new System.Drawing.Point(364, 117);
+            this.txtPUC.MaxLength = 5;
             this.txtPUC.Name = "txtPUC";
+            this.txtPUC.PasswordChar = '*';
             this.txtPUC.Size = new System.Drawing.Size(100, 20);
             this.txtPUC.TabIndex = 7;
             // 

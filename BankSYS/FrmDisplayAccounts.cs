@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankSYS
@@ -32,6 +26,19 @@ namespace BankSYS
         private void FrmDisplayAccounts_Load(object sender, EventArgs e)
         {
             lblname.Text = Customer.Fname + " " + Customer.Lname;
+            DataSet Accounts = new DataSet(); 
+            //Accounts = FillfromDB.getAccounts();
+            if(Accounts.Equals(null))
+            {
+                LblNoAcc.Text = "You don't have an account ";
+            }
+        }
+
+        private void lnkRegesterAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmCreateAccount start = new FrmCreateAccount();
+            start.Show();
+            this.Hide();
         }
     }
 }
