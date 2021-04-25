@@ -50,11 +50,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountSQL.cs" />
+    <Compile Include="DisplayAccount.cs" />
     <Compile Include="FrmCreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCreateAccount.Designer.cs">
       <DependentUpon>FrmCreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeposit.Designer.cs">
+      <DependentUpon>frmDeposit.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDisplayAccounts.cs">
       <SubType>Form</SubType>
@@ -62,10 +70,12 @@
     <Compile Include="FrmDisplayAccounts.Designer.cs">
       <DependentUpon>FrmDisplayAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserSQL.cs" />
+    <Compile Include="ReusableSQL.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionSQL.cs" />
+    <Compile Include="CustomerSQL.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="FillfromDB.cs" />
     <Compile Include="FrmRegesterUserData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +99,9 @@
     <Compile Include="Validation.cs" />
     <EmbeddedResource Include="FrmCreateAccount.resx">
       <DependentUpon>FrmCreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeposit.resx">
+      <DependentUpon>frmDeposit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDisplayAccounts.resx">
       <DependentUpon>FrmDisplayAccounts.cs</DependentUpon>

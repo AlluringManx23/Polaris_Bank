@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankSYS
@@ -59,7 +52,7 @@ namespace BankSYS
             { 
                 try
                 {
-                    if (UserSQL.Login(Customer.CustomerId, Customer.PAC))
+                    if (CustomerSQL.Login(Customer.CustomerId, Customer.PAC))
                     {
                         FrmDisplayAccounts Acc = new FrmDisplayAccounts();
                         Acc.Show();

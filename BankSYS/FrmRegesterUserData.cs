@@ -99,7 +99,7 @@ namespace BankSYS
                 try
                 {
                     Customer.Lname = Customer.Lname.Replace("'", "''");
-                    UserSQL.AddUser();
+                    CustomerSQL.AddUser();
 
                     MessageBox.Show("Your Customer ID is " + Customer.CustomerId + ". \nPlease use this to login");
 
@@ -125,7 +125,7 @@ namespace BankSYS
             DataSet countyds = new DataSet();
             try
             {
-            countryds = FillfromDB.dsfromsql(countryarr);
+            countryds = ReusableSQL.dsfromsql(countryarr);
             cboCountryCode.ValueMember = "countryid";
             cboCountryCode.DisplayMember = "country";
             cboCountryCode.DataSource = countryds.Tables[0];
@@ -135,7 +135,7 @@ namespace BankSYS
                 MessageBox.Show("Error 002: Could not connect to database. Please contact an administratior");
             }
             try { 
-            countyds = FillfromDB.dsfromsql(countyarr);
+            countyds = ReusableSQL.dsfromsql(countyarr);
             cboCounty.ValueMember = "countyid";
             cboCounty.DisplayMember = "county";
             cboCounty.DataSource = countyds.Tables[0];

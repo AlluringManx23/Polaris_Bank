@@ -8,35 +8,8 @@ using System.Threading.Tasks;
 
 namespace BankSYS
 {
-    class UserSQL
+    class CustomerSQL
     {
-        /*GetNextId Optimised for reuse.
-        *How to use:
-        *Create array where first index is the ID column
-        *and second is the table name.
-        *pass array into GetNextId, get NextID as int
-        */
-        public static int GetNextId(string[] s)
-        {
-            int last;
-            OracleConnection conn = new OracleConnection(DBConnect.oradb);
-            conn.Open();
-
-            String strSQL = "SELECT MAX(" + s[0] + ") FROM "+ s[1];
-
-            OracleCommand cmd = new OracleCommand(strSQL, conn);
-            OracleDataReader dr = cmd.ExecuteReader();
-
-            dr.Read();
-            if (dr[0] == DBNull.Value)
-                last = 1;
-            else
-                last = Convert.ToInt32(dr[0]) + 1;
-            conn.Close();
-
-            return last;
-        }
-
         public static void AddUser()
         {
             string[] Cust = { "Customerid", "Customer" };
@@ -44,7 +17,7 @@ namespace BankSYS
             
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            Customer.CustomerId = GetNextId(Cust).ToString("D8");
+            Customer.CustomerId = ReusableSQL.GetNextId(Cust).ToString("D8");
             
             String CustSQL = "INSERT INTO Customer(Customerid,first_name,last_name,pps_number,country_code,phone_number,date_of_birth,address_line_1,address_line_2,address_line_3,town,county,eircode,date_created) " +
             "VALUES('" + Customer.CustomerId + "', '" + Customer.Fname + "', '" + Customer.Lname + "', '" + Customer.PPSNo + "', '" + Customer.CountryCode + "', '" + Customer.PhoneNo + "', TO_DATE('" + Customer.DOB + "', 'DD/MM/YYYY'), '" + Customer.AddressL1 + "', '" + Customer.AddressL2 + "', '" + Customer.AddressL3 + "', '" + Customer.Town + "', '" + Customer.County + "', '" + Customer.Eir + "', TO_DATE('" + Customer.DateCreated + "', 'DD/MM/YYYY'))";
@@ -52,7 +25,7 @@ namespace BankSYS
             OracleCommand Custcmd = new OracleCommand(CustSQL, conn);
             Custcmd.ExecuteNonQuery();
 
-            string LogId = GetNextId(Log).ToString("D8");
+            string LogId = ReusableSQL.GetNextId(Log).ToString("D8");
 
             String LogSQL = "INSERT INTO Login(Loginid,Customerid,pac) " +
             "VALUES('" + LogId + "', '" + Customer.CustomerId + "', '" + Customer.PAC + "')";
@@ -73,22 +46,25 @@ namespace BankSYS
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             OracleDataReader dr = cmd.ExecuteReader();
-
+            
             dr.Read();
             if (dr.HasRows)
             {
                 if (dr[1].Equals(k))
                 {
                     GetCustName(s);
+                    conn.Close();
                     return true;
                 }
                 else
                 {
+                    conn.Close();
                     return false;
                 }
             }
             else
             {
+                conn.Close();
                 return false;
             }
         }
@@ -107,8 +83,9 @@ namespace BankSYS
             dr.Read();
             Customer.Fname = dr[0].ToString();
             Customer.Lname = dr[1].ToString();
+            conn.Close();
 
-    }
+        }
         public static DataSet GetUser()
         {
             //define Sql Query
@@ -145,16 +122,18 @@ namespace BankSYS
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             OracleDataReader dr = cmd.ExecuteReader();
-
             dr.Read();
             if(dr.HasRows)
             {
+                conn.Close();
                 return true;
             }
             else
             {
+                conn.Close();
                 return false;
             }
+
         }
 
     }

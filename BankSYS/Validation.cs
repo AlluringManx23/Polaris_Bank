@@ -127,17 +127,32 @@ namespace BankSYS
 
         public Boolean IsAccount(string s)
         {
-            Boolean alphabetic;
+            Boolean Account;
             Regex r = new Regex("^[a-zA-Z0-9' ]+$");
             if (r.IsMatch(s))
             {
-                alphabetic = true;
+                Account = true;
             }
             else
             {
-                alphabetic = false;
+                Account = false;
             }
-            return alphabetic;
+            return Account;
+        }
+
+        public Boolean IsAmount(string s)
+        {
+            Boolean amount;
+            Regex r = new Regex("^[0-9]+\\.[0-9]{2}$");
+            if (r.IsMatch(s))
+            {
+                amount = true;
+            }
+            else
+            {
+                amount = false;
+            }
+            return amount;
         }
 
     }

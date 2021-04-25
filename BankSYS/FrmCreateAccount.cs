@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankSYS
@@ -16,6 +10,8 @@ namespace BankSYS
         {
             InitializeComponent();
         }
+
+        Account Acc = new Account();
 
         private void mnu_exit_Click(object sender, EventArgs e)
         {
@@ -37,14 +33,14 @@ namespace BankSYS
         }
 
         private void FrmCreatAccount_Load(object sender, EventArgs e)
-        { 
-            string[] AccountTypes = { "typeid", "type_name", "Account_type" };
+        {
+            string[] AccountTypes = { "id", "name", "Account_type" };
             DataSet AccountTypesds = new DataSet();
             try
             {
-                AccountTypesds = FillfromDB.dsfromsql(AccountTypes);
-                cboAccountType.ValueMember = "typeid";
-                cboAccountType.DisplayMember = "type_name";
+                AccountTypesds = ReusableSQL.dsfromsql(AccountTypes);
+                cboAccountType.ValueMember = "id";
+                cboAccountType.DisplayMember = "name";
                 cboAccountType.DataSource = AccountTypesds.Tables[0];
             }
             catch
@@ -83,16 +79,21 @@ namespace BankSYS
         {
             errorProvider.Clear();
             Validation v = new Validation();
-            String AccountName = txtAccountName.Text;
-            String AccountType = cboAccountType.SelectedValue.ToString();
-            String DateCreated = DateTime.Today.ToString();
-            if(v.IsEmpty(AccountName))
+            Acc.Name = txtAccountName.Text;
+            Acc.Type = cboAccountType.SelectedValue.ToString();
+            Acc.Creation = DateTime.Today.ToString("dd/MM/yyyy");
+            if(v.IsEmpty(Acc.Name))
             {
                 errorProvider.SetError(txtAccountName, "Please enter an account name");
             }
-            else if(v.IsAccount(AccountName))
+            else if(v.IsAccount(Acc.Name))
             {
-                MessageBox.Show("valid account");
+                AccountSQL.AddAccount(ref Acc);
+                MessageBox.Show("You Created a " + cboAccountType.Text + " Account\nwith the name " + Acc.Name);
+                
+                FrmDisplayAccounts start = new FrmDisplayAccounts();
+                start.Show();
+                this.Hide();
             }
             else
             {

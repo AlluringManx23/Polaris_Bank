@@ -100,7 +100,7 @@ namespace BankSYS
                 {
                     Customer.PPSNo = Customer.PPSNo.ToUpper();
 
-                    if (UserSQL.IsInUse(Customer.PPSNo))
+                    if (CustomerSQL.IsInUse(Customer.PPSNo))
                     {
                         MessageBox.Show("This PPS number is already regestered to an account.");
                     }
