@@ -143,7 +143,8 @@ namespace BankSYS
         public Boolean IsAmount(string s)
         {
             Boolean amount;
-            Regex r = new Regex("^[0-9]+\\.[0-9]{2}$");
+
+            Regex r = new Regex(@"^[0-9]+\.[0-9]{2}$");
             if (r.IsMatch(s))
             {
                 amount = true;
@@ -153,6 +154,38 @@ namespace BankSYS
                 amount = false;
             }
             return amount;
+        }
+
+        public Boolean isAccountNumber(string s)
+        {
+            Boolean amount;
+
+            Regex r = new Regex("^[0-9]{9}$");
+            if (r.IsMatch(s))
+            {
+                amount = true;
+            }
+            else
+            {
+                amount = false;
+            }
+            return amount;
+        }
+        
+        public Boolean isIBAN(string s)
+        {
+            Boolean IBAN;
+
+            Regex r = new Regex("^(?:(?:IT|SM)[0-9]{2}[A-Z][0-9]{22}|CY[0-9]{2}[A-Z][0-9]{23}|NL[0-9]{2}[A-Z]{4}[0-9]{10}|LV[0-9]{2}[A-Z]{4}[0-9]{13}|(?:BG|BH|GB|IE)[0-9]{2}[A-Z]{4}[0-9]{14}|GI[0-9]{2}[A-Z]{4}[0-9]{15}|RO[0-9]{2}[A-Z]{4}[0-9]{16}|KW[0-9]{2}[A-Z]{4}[0-9]{22}|MT[0-9]{2}[A-Z]{4}[0-9]{23}|NO[0-9]{13}|(?:DK|FI|GL|FO)[0-9]{16}|MK[0-9]{17}|(?:AT|EE|KZ|LU|XK)[0-9]{18}|(?:BA|HR|LI|CH|CR)[0-9]{19}|(?:GE|DE|LT|ME|RS)[0-9]{20}|IL[0-9]{21}|(?:AD|CZ|ES|MD|SA)[0-9]{22}|PT[0-9]{23}|(?:BE|IS)[0-9]{24}|(?:FR|MR|MC)[0-9]{25}|(?:AL|DO|LB|PL)[0-9]{26}|(?:AZ|HU)[0-9]{27}|(?:GR|MU)[0-9]{28})$");
+            if (r.IsMatch(s))
+            {
+                IBAN = true;
+            }
+            else
+            {
+                IBAN = false;
+            }
+            return IBAN;
         }
 
     }

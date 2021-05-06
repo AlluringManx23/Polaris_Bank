@@ -4,7 +4,7 @@ using System.Data;
 
 namespace BankSYS
 {
-    class ReusableSQL
+    class Reusable
     {
         /*GetNextId Optimised for reuse.
          *How to use:
@@ -38,7 +38,7 @@ namespace BankSYS
          *Fill array with columns you want
          *last entery into the array is the table you want to pull data from
          */
-        public static DataSet dsfromsql(string[] s)
+        public static DataSet dsfromDB(string[] s)
         {
             //define Sql Query
             String strSQL = "SELECT";
@@ -65,11 +65,40 @@ namespace BankSYS
 
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "FS");
+            da.Fill(ds, "BS");
 
             conn.Close();
 
             return ds;
+        }
+
+        public static string stringfromDB(string[] s)
+        {
+            String strSQL = "SELECT " + s[0] + " FROM " + s[1];
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "BS");
+
+            string select = ds.Tables[0].Rows[0][0].ToString();
+
+            conn.Close();
+
+            return select;
+        }
+
+        public static void resetupdate()
+        {
+            UpdateForm.i = 0;
+            UpdateForm.ClosedAccount = false;
+            UpdateForm.SelectedIndex = 0;
         }
     }
 }

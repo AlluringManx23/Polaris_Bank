@@ -261,6 +261,7 @@ namespace BankSYS
             this.Controls.Add(this.MnuRegisterUserLogin);
             this.MainMenuStrip = this.MnuRegisterUserLogin;
             this.Name = "FrmRegesterLoginData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register Login";
             this.Load += new System.EventHandler(this.FrmRegesterLoginData_Load);
             this.MnuRegisterUserLogin.ResumeLayout(false);

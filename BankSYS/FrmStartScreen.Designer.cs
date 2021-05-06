@@ -42,10 +42,12 @@ namespace BankSYS
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.MnuStartScreen.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // MnuStartScreen
@@ -98,7 +100,7 @@ namespace BankSYS
             // 
             this.lblCustId.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblCustId.AutoSize = true;
-            this.lblCustId.Location = new System.Drawing.Point(290, 70);
+            this.lblCustId.Location = new System.Drawing.Point(290, 88);
             this.lblCustId.Name = "lblCustId";
             this.lblCustId.Size = new System.Drawing.Size(68, 13);
             this.lblCustId.TabIndex = 3;
@@ -108,7 +110,7 @@ namespace BankSYS
             // 
             this.lblPUC.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblPUC.AutoSize = true;
-            this.lblPUC.Location = new System.Drawing.Point(326, 121);
+            this.lblPUC.Location = new System.Drawing.Point(326, 152);
             this.lblPUC.Name = "lblPUC";
             this.lblPUC.Size = new System.Drawing.Size(32, 13);
             this.lblPUC.TabIndex = 4;
@@ -116,8 +118,9 @@ namespace BankSYS
             // 
             // lnkRegesterCustomer
             // 
+            this.lnkRegesterCustomer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lnkRegesterCustomer.AutoSize = true;
-            this.lnkRegesterCustomer.Location = new System.Drawing.Point(364, 153);
+            this.lnkRegesterCustomer.Location = new System.Drawing.Point(322, 0);
             this.lnkRegesterCustomer.Name = "lnkRegesterCustomer";
             this.lnkRegesterCustomer.Size = new System.Drawing.Size(154, 13);
             this.lnkRegesterCustomer.TabIndex = 5;
@@ -128,7 +131,7 @@ namespace BankSYS
             // txtCustomerid
             // 
             this.txtCustomerid.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCustomerid.Location = new System.Drawing.Point(364, 67);
+            this.txtCustomerid.Location = new System.Drawing.Point(364, 85);
             this.txtCustomerid.MaxLength = 8;
             this.txtCustomerid.Name = "txtCustomerid";
             this.txtCustomerid.Size = new System.Drawing.Size(100, 20);
@@ -137,7 +140,7 @@ namespace BankSYS
             // txtPUC
             // 
             this.txtPUC.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPUC.Location = new System.Drawing.Point(364, 117);
+            this.txtPUC.Location = new System.Drawing.Point(364, 148);
             this.txtPUC.MaxLength = 5;
             this.txtPUC.Name = "txtPUC";
             this.txtPUC.PasswordChar = '*';
@@ -146,9 +149,10 @@ namespace BankSYS
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(364, 207);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(334, 69);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(130, 40);
             this.button1.TabIndex = 8;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
@@ -165,18 +169,13 @@ namespace BankSYS
             this.tableLayoutPanel2.Controls.Add(this.txtCustomerid, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtPUC, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.lblPUC, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lnkRegesterCustomer, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 2, 4);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 130);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.88312F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.23377F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 308);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 191);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // errorProvider
@@ -185,11 +184,29 @@ namespace BankSYS
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.Controls.Add(this.lnkRegesterCustomer, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 1, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 304);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.32836F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.67164F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 134);
+            this.tableLayoutPanel3.TabIndex = 10;
+            // 
             // FrmStartScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.MnuStartScreen);
@@ -208,6 +225,8 @@ namespace BankSYS
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,6 +246,7 @@ namespace BankSYS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
 

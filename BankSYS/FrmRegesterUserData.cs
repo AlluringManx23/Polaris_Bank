@@ -125,7 +125,7 @@ namespace BankSYS
             DataSet countyds = new DataSet();
             try
             {
-            countryds = ReusableSQL.dsfromsql(countryarr);
+            countryds = Reusable.dsfromDB(countryarr);
             cboCountryCode.ValueMember = "countryid";
             cboCountryCode.DisplayMember = "country";
             cboCountryCode.DataSource = countryds.Tables[0];
@@ -135,7 +135,7 @@ namespace BankSYS
                 MessageBox.Show("Error 002: Could not connect to database. Please contact an administratior");
             }
             try { 
-            countyds = ReusableSQL.dsfromsql(countyarr);
+            countyds = Reusable.dsfromDB(countyarr);
             cboCounty.ValueMember = "countyid";
             cboCounty.DisplayMember = "county";
             cboCounty.DataSource = countyds.Tables[0];

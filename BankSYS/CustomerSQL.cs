@@ -17,7 +17,7 @@ namespace BankSYS
             
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            Customer.CustomerId = ReusableSQL.GetNextId(Cust).ToString("D8");
+            Customer.CustomerId = Reusable.GetNextId(Cust).ToString("D8");
             
             String CustSQL = "INSERT INTO Customer(Customerid,first_name,last_name,pps_number,country_code,phone_number,date_of_birth,address_line_1,address_line_2,address_line_3,town,county,eircode,date_created) " +
             "VALUES('" + Customer.CustomerId + "', '" + Customer.Fname + "', '" + Customer.Lname + "', '" + Customer.PPSNo + "', '" + Customer.CountryCode + "', '" + Customer.PhoneNo + "', TO_DATE('" + Customer.DOB + "', 'DD/MM/YYYY'), '" + Customer.AddressL1 + "', '" + Customer.AddressL2 + "', '" + Customer.AddressL3 + "', '" + Customer.Town + "', '" + Customer.County + "', '" + Customer.Eir + "', TO_DATE('" + Customer.DateCreated + "', 'DD/MM/YYYY'))";
@@ -25,7 +25,7 @@ namespace BankSYS
             OracleCommand Custcmd = new OracleCommand(CustSQL, conn);
             Custcmd.ExecuteNonQuery();
 
-            string LogId = ReusableSQL.GetNextId(Log).ToString("D8");
+            string LogId = Reusable.GetNextId(Log).ToString("D8");
 
             String LogSQL = "INSERT INTO Login(Loginid,Customerid,pac) " +
             "VALUES('" + LogId + "', '" + Customer.CustomerId + "', '" + Customer.PAC + "')";
@@ -116,14 +116,14 @@ namespace BankSYS
         {
             //define Sql Query
             String strSQL = "SELECT * FROM Customer where pps_number = '" + s + "'";
-            
+
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             OracleDataReader dr = cmd.ExecuteReader();
             dr.Read();
-            if(dr.HasRows)
+            if (dr.HasRows)
             {
                 conn.Close();
                 return true;
@@ -133,6 +133,25 @@ namespace BankSYS
                 conn.Close();
                 return false;
             }
+
+        }
+
+        public static void TerminateAccount(string s)
+        {
+            //define Sql Query
+            String DeleteLogin = "Delete FROM Login where CustomerID = '" + s + "'";
+            String TerminateAccount = "Update Customer SET Status = 'T' WHERE CustomerID = '" + s + "'";
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand Deletecmd = new OracleCommand(DeleteLogin, conn);
+            Deletecmd.ExecuteNonQuery();
+
+            OracleCommand Terminatecmd = new OracleCommand(TerminateAccount, conn);
+            Terminatecmd.ExecuteNonQuery();
+
+            conn.Close();
 
         }
 

@@ -38,7 +38,7 @@ namespace BankSYS
             DataSet AccountTypesds = new DataSet();
             try
             {
-                AccountTypesds = ReusableSQL.dsfromsql(AccountTypes);
+                AccountTypesds = Reusable.dsfromDB(AccountTypes);
                 cboAccountType.ValueMember = "id";
                 cboAccountType.DisplayMember = "name";
                 cboAccountType.DataSource = AccountTypesds.Tables[0];
@@ -86,18 +86,22 @@ namespace BankSYS
             {
                 errorProvider.SetError(txtAccountName, "Please enter an account name");
             }
-            else if(v.IsAccount(Acc.Name))
+            else if(!v.IsAccount(Acc.Name))
             {
-                AccountSQL.AddAccount(ref Acc);
-                MessageBox.Show("You Created a " + cboAccountType.Text + " Account\nwith the name " + Acc.Name);
-                
-                FrmDisplayAccounts start = new FrmDisplayAccounts();
-                start.Show();
-                this.Hide();
+                errorProvider.SetError(txtAccountName, "Account name cannot contain special characters");
+            }
+            else if(AccountSQL.AccountNameExists(Acc.Name))
+            {
+                errorProvider.SetError(txtAccountName, "Account with this name already exists");
             }
             else
             {
-                errorProvider.SetError(txtAccountName, "Account name cannot contain special characters");
+                AccountSQL.AddAccount(ref Acc);
+                MessageBox.Show("You Created a " + cboAccountType.Text + " Account\nwith the name " + Acc.Name);
+
+                FrmDisplayAccounts start = new FrmDisplayAccounts();
+                start.Show();
+                this.Hide();
             }
 
 

@@ -11,6 +11,8 @@ namespace BankSYS
         public string note { get; set; }
         public string debtor { get; set; }
         public string timestamp { get; set; }
+        public string debtornote { get; set; }
+
 
     }
 }

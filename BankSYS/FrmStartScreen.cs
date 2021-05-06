@@ -73,7 +73,7 @@ namespace BankSYS
 
         private void FrmStartScreen_Load(object sender, EventArgs e)
         {
-            txtCustomerid.Focus();
+            txtCustomerid.Focus();            
         }
     }
 }

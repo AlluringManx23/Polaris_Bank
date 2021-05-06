@@ -175,6 +175,7 @@ namespace BankSYS
             this.Controls.Add(this.MnuCreateAccount);
             this.MainMenuStrip = this.MnuCreateAccount;
             this.Name = "FrmCreateAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create An Account";
             this.Load += new System.EventHandler(this.FrmCreatAccount_Load);
             this.MnuCreateAccount.ResumeLayout(false);

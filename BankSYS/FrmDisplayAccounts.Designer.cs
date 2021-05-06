@@ -39,6 +39,9 @@ namespace BankSYS
             this.updateAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.withdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.llbCreateAccount = new System.Windows.Forms.LinkLabel();
@@ -69,7 +72,7 @@ namespace BankSYS
             this.mnuExit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip2";
             // 
@@ -109,6 +112,7 @@ namespace BankSYS
             this.createAccountToolStripMenuItem.Name = "createAccountToolStripMenuItem";
             this.createAccountToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.createAccountToolStripMenuItem.Text = "Create Account";
+            this.createAccountToolStripMenuItem.Click += new System.EventHandler(this.createAccountToolStripMenuItem_Click);
             // 
             // updateAccountToolStripMenuItem
             // 
@@ -121,12 +125,38 @@ namespace BankSYS
             this.closeAccountToolStripMenuItem.Name = "closeAccountToolStripMenuItem";
             this.closeAccountToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.closeAccountToolStripMenuItem.Text = "Close Account";
+            this.closeAccountToolStripMenuItem.Click += new System.EventHandler(this.closeAccountToolStripMenuItem_Click);
             // 
             // transferToolStripMenuItem
             // 
+            this.transferToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.depositToolStripMenuItem,
+            this.withdrawToolStripMenuItem,
+            this.transferToolStripMenuItem1});
             this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
             this.transferToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.transferToolStripMenuItem.Text = "Transfer";
+            // 
+            // depositToolStripMenuItem
+            // 
+            this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.depositToolStripMenuItem.Text = "Deposit";
+            this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
+            // 
+            // withdrawToolStripMenuItem
+            // 
+            this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
+            this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.withdrawToolStripMenuItem.Text = "Withdraw";
+            this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
+            // 
+            // transferToolStripMenuItem1
+            // 
+            this.transferToolStripMenuItem1.Name = "transferToolStripMenuItem1";
+            this.transferToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.transferToolStripMenuItem1.Text = "Transfer";
+            this.transferToolStripMenuItem1.Click += new System.EventHandler(this.transferToolStripMenuItem1_Click);
             // 
             // mnuExit
             // 
@@ -151,7 +181,7 @@ namespace BankSYS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 423);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 433);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // llbCreateAccount
@@ -159,7 +189,7 @@ namespace BankSYS
             this.llbCreateAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.llbCreateAccount.AutoSize = true;
             this.llbCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbCreateAccount.Location = new System.Drawing.Point(146, 246);
+            this.llbCreateAccount.Location = new System.Drawing.Point(137, 253);
             this.llbCreateAccount.Name = "llbCreateAccount";
             this.llbCreateAccount.Size = new System.Drawing.Size(508, 33);
             this.llbCreateAccount.TabIndex = 3;
@@ -172,11 +202,12 @@ namespace BankSYS
             this.lblNoAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNoAccount.AutoSize = true;
             this.lblNoAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoAccount.Location = new System.Drawing.Point(98, 141);
+            this.lblNoAccount.Location = new System.Drawing.Point(89, 145);
             this.lblNoAccount.Name = "lblNoAccount";
             this.lblNoAccount.Size = new System.Drawing.Size(604, 33);
             this.lblNoAccount.TabIndex = 4;
             this.lblNoAccount.Text = "You do not currently have an account with us!";
+            this.lblNoAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAccountSum
             // 
@@ -200,7 +231,8 @@ namespace BankSYS
             // 
             // FrmDisplayAccounts
             // 
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblFullName);
             this.Controls.Add(this.lblAccountSum);
@@ -241,5 +273,8 @@ namespace BankSYS
         private System.Windows.Forms.Label lblNoAccount;
         private System.Windows.Forms.Label lblAccountSum;
         private System.Windows.Forms.Label lblFullName;
+        private System.Windows.Forms.ToolStripMenuItem depositToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem withdrawToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem1;
     }
 }
