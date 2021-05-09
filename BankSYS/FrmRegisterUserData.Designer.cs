@@ -1,7 +1,7 @@
 ﻿
 namespace BankSYS
 {
-    partial class FrmRegesterUserData
+    partial class FrmRegisterUserData
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,11 @@ namespace BankSYS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.MnuRegisterUserData = new System.Windows.Forms.MenuStrip();
-            this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRegisterUserData = new System.Windows.Forms.MenuStrip();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpdob = new System.Windows.Forms.DateTimePicker();
-            this.BtnSubmit = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.txteir = new System.Windows.Forms.TextBox();
             this.txttown = new System.Windows.Forms.TextBox();
             this.txtAddl1 = new System.Windows.Forms.TextBox();
@@ -53,43 +53,43 @@ namespace BankSYS
             this.LblFname = new System.Windows.Forms.Label();
             this.cboCountryCode = new System.Windows.Forms.ComboBox();
             this.lblCountryCode = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpPersonal = new System.Windows.Forms.GroupBox();
+            this.grpAddress = new System.Windows.Forms.GroupBox();
             this.cboCounty = new System.Windows.Forms.ComboBox();
             this.txtAddl3 = new System.Windows.Forms.TextBox();
             this.LblAddl3 = new System.Windows.Forms.Label();
             this.errorprovider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.MnuRegisterUserData.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.mnuRegisterUserData.SuspendLayout();
+            this.grpPersonal.SuspendLayout();
+            this.grpAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorprovider)).BeginInit();
             this.SuspendLayout();
             // 
-            // MnuRegisterUserData
+            // mnuRegisterUserData
             // 
-            this.MnuRegisterUserData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuExit,
-            this.MnuBack});
-            this.MnuRegisterUserData.Location = new System.Drawing.Point(0, 0);
-            this.MnuRegisterUserData.Name = "MnuRegisterUserData";
-            this.MnuRegisterUserData.Size = new System.Drawing.Size(800, 24);
-            this.MnuRegisterUserData.TabIndex = 0;
-            this.MnuRegisterUserData.Text = "menuStrip1";
+            this.mnuRegisterUserData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuExit,
+            this.mnuBack});
+            this.mnuRegisterUserData.Location = new System.Drawing.Point(0, 0);
+            this.mnuRegisterUserData.Name = "mnuRegisterUserData";
+            this.mnuRegisterUserData.Size = new System.Drawing.Size(784, 24);
+            this.mnuRegisterUserData.TabIndex = 0;
+            this.mnuRegisterUserData.Text = "menuStrip1";
             // 
-            // MnuExit
+            // mnuExit
             // 
-            this.MnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MnuExit.Name = "MnuExit";
-            this.MnuExit.Size = new System.Drawing.Size(38, 20);
-            this.MnuExit.Text = "Exit";
-            this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(38, 20);
+            this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // MnuBack
+            // mnuBack
             // 
-            this.MnuBack.Name = "MnuBack";
-            this.MnuBack.Size = new System.Drawing.Size(44, 20);
-            this.MnuBack.Text = "Back";
-            this.MnuBack.Click += new System.EventHandler(this.MnuBack_Click);
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(44, 20);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
             // 
             // dtpdob
             // 
@@ -101,15 +101,15 @@ namespace BankSYS
             this.dtpdob.TabIndex = 12;
             this.dtpdob.Value = new System.DateTime(2021, 3, 18, 0, 49, 33, 0);
             // 
-            // BtnSubmit
+            // btnSubmit
             // 
-            this.BtnSubmit.Location = new System.Drawing.Point(640, 390);
-            this.BtnSubmit.Name = "BtnSubmit";
-            this.BtnSubmit.Size = new System.Drawing.Size(148, 48);
-            this.BtnSubmit.TabIndex = 29;
-            this.BtnSubmit.Text = "Submit";
-            this.BtnSubmit.UseVisualStyleBackColor = true;
-            this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            this.btnSubmit.Location = new System.Drawing.Point(624, 390);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(148, 48);
+            this.btnSubmit.TabIndex = 29;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txteir
             // 
@@ -286,45 +286,45 @@ namespace BankSYS
             this.lblCountryCode.TabIndex = 7;
             this.lblCountryCode.Text = "Country Code:";
             // 
-            // groupBox1
+            // grpPersonal
             // 
-            this.groupBox1.Controls.Add(this.LblDOB);
-            this.groupBox1.Controls.Add(this.txtphoneno);
-            this.groupBox1.Controls.Add(this.LblFname);
-            this.groupBox1.Controls.Add(this.cboCountryCode);
-            this.groupBox1.Controls.Add(this.txtfname);
-            this.groupBox1.Controls.Add(this.lblLname);
-            this.groupBox1.Controls.Add(this.lblCountryCode);
-            this.groupBox1.Controls.Add(this.dtpdob);
-            this.groupBox1.Controls.Add(this.txtlname);
-            this.groupBox1.Controls.Add(this.LblPhoneNo);
-            this.groupBox1.Location = new System.Drawing.Point(0, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 174);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Personal Information";
+            this.grpPersonal.Controls.Add(this.LblDOB);
+            this.grpPersonal.Controls.Add(this.txtphoneno);
+            this.grpPersonal.Controls.Add(this.LblFname);
+            this.grpPersonal.Controls.Add(this.cboCountryCode);
+            this.grpPersonal.Controls.Add(this.txtfname);
+            this.grpPersonal.Controls.Add(this.lblLname);
+            this.grpPersonal.Controls.Add(this.lblCountryCode);
+            this.grpPersonal.Controls.Add(this.dtpdob);
+            this.grpPersonal.Controls.Add(this.txtlname);
+            this.grpPersonal.Controls.Add(this.LblPhoneNo);
+            this.grpPersonal.Location = new System.Drawing.Point(0, 27);
+            this.grpPersonal.Name = "grpPersonal";
+            this.grpPersonal.Size = new System.Drawing.Size(784, 174);
+            this.grpPersonal.TabIndex = 1;
+            this.grpPersonal.TabStop = false;
+            this.grpPersonal.Text = "Personal Information";
             // 
-            // groupBox2
+            // grpAddress
             // 
-            this.groupBox2.Controls.Add(this.LblAddl1);
-            this.groupBox2.Controls.Add(this.Lbleir);
-            this.groupBox2.Controls.Add(this.cboCounty);
-            this.groupBox2.Controls.Add(this.txtAddl1);
-            this.groupBox2.Controls.Add(this.txttown);
-            this.groupBox2.Controls.Add(this.txtAddl3);
-            this.groupBox2.Controls.Add(this.LblAddl2);
-            this.groupBox2.Controls.Add(this.Lbltown);
-            this.groupBox2.Controls.Add(this.LblAddl3);
-            this.groupBox2.Controls.Add(this.txtAddl2);
-            this.groupBox2.Controls.Add(this.LblCounty);
-            this.groupBox2.Controls.Add(this.txteir);
-            this.groupBox2.Location = new System.Drawing.Point(0, 207);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(800, 177);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Address";
+            this.grpAddress.Controls.Add(this.LblAddl1);
+            this.grpAddress.Controls.Add(this.Lbleir);
+            this.grpAddress.Controls.Add(this.cboCounty);
+            this.grpAddress.Controls.Add(this.txtAddl1);
+            this.grpAddress.Controls.Add(this.txttown);
+            this.grpAddress.Controls.Add(this.txtAddl3);
+            this.grpAddress.Controls.Add(this.LblAddl2);
+            this.grpAddress.Controls.Add(this.Lbltown);
+            this.grpAddress.Controls.Add(this.LblAddl3);
+            this.grpAddress.Controls.Add(this.txtAddl2);
+            this.grpAddress.Controls.Add(this.LblCounty);
+            this.grpAddress.Controls.Add(this.txteir);
+            this.grpAddress.Location = new System.Drawing.Point(0, 207);
+            this.grpAddress.Name = "grpAddress";
+            this.grpAddress.Size = new System.Drawing.Size(784, 177);
+            this.grpAddress.TabIndex = 15;
+            this.grpAddress.TabStop = false;
+            this.grpAddress.Text = "Address";
             // 
             // cboCounty
             // 
@@ -361,26 +361,28 @@ namespace BankSYS
             this.errorprovider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorprovider.ContainerControl = this;
             // 
-            // FrmRegesterUserData
+            // FrmRegisterUserData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.MnuRegisterUserData);
-            this.Controls.Add(this.BtnSubmit);
-            this.MainMenuStrip = this.MnuRegisterUserData;
-            this.Name = "FrmRegesterUserData";
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.grpAddress);
+            this.Controls.Add(this.grpPersonal);
+            this.Controls.Add(this.mnuRegisterUserData);
+            this.Controls.Add(this.btnSubmit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.mnuRegisterUserData;
+            this.MaximizeBox = false;
+            this.Name = "FrmRegisterUserData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Customer";
+            this.Text = "Polaris Bank - Create Customer";
             this.Load += new System.EventHandler(this.FrmCreateAccount_Load);
-            this.MnuRegisterUserData.ResumeLayout(false);
-            this.MnuRegisterUserData.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.mnuRegisterUserData.ResumeLayout(false);
+            this.mnuRegisterUserData.PerformLayout();
+            this.grpPersonal.ResumeLayout(false);
+            this.grpPersonal.PerformLayout();
+            this.grpAddress.ResumeLayout(false);
+            this.grpAddress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorprovider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -389,10 +391,10 @@ namespace BankSYS
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip MnuRegisterUserData;
-        private System.Windows.Forms.ToolStripMenuItem MnuExit;
+        private System.Windows.Forms.MenuStrip mnuRegisterUserData;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.DateTimePicker dtpdob;
-        private System.Windows.Forms.Button BtnSubmit;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txteir;
         private System.Windows.Forms.TextBox txttown;
         private System.Windows.Forms.TextBox txtAddl1;
@@ -409,14 +411,14 @@ namespace BankSYS
         private System.Windows.Forms.Label LblPhoneNo;
         private System.Windows.Forms.Label lblLname;
         private System.Windows.Forms.Label LblFname;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpPersonal;
+        private System.Windows.Forms.GroupBox grpAddress;
         private System.Windows.Forms.ComboBox cboCounty;
         private System.Windows.Forms.ErrorProvider errorprovider;
         private System.Windows.Forms.ComboBox cboCountryCode;
         private System.Windows.Forms.Label lblCountryCode;
         private System.Windows.Forms.Label LblAddl3;
         private System.Windows.Forms.TextBox txtAddl3;
-        private System.Windows.Forms.ToolStripMenuItem MnuBack;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
     }
 }

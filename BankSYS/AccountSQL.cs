@@ -66,7 +66,7 @@ namespace BankSYS
 
         public static bool AccountExists(string s)
         {
-            bool exists = true;
+            bool exists;
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
@@ -89,14 +89,53 @@ namespace BankSYS
         public static void CloseAccount(string s)
         {
             //define Sql Query
-            String strSQL = "update Account set status = 'C' WHERE Accountid = " + s;
+            String strSQL = "update Account set status = 'C', Date_Closed = TO_DATE('" + DateTime.Now.ToString("dd/MM/yyyy") + "', 'DD/MM/YYYY') WHERE Accountid = " + s;
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
 
             conn.Close();
         }
+
+        public static bool AllBalanceEmpty()
+        {
+            //define Sql Query
+            bool exists;
+
+            String strSQL = "Select * From Account WHERE NOT BALANCE = '0.00' AND CustomerID = " + Customer.CustomerId;
+            
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+            
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+            if (dr.HasRows)
+                exists = false;
+            else
+                exists = true;
+            conn.Close();
+
+            return exists;
+        }
+
+        public static void CloseCustAccounts()
+        {
+            //define Sql Query
+            String strSQL = "update Account set status = 'C', date_closed = TO_DATE('" + DateTime.Now.ToString("dd/MM/yyyy") + "', 'DD/MM/YYYY') WHERE CustomerID = " + Customer.CustomerId;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
     }
 }

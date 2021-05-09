@@ -12,11 +12,7 @@ namespace BankSYS
 
         private void MnuExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-
-            }
-            else
+            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -24,12 +20,12 @@ namespace BankSYS
 
         private void lnkRegesterCustomer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmRegesterLoginData Reg = new FrmRegesterLoginData();
-            Reg.Show();
+            FrmRegisterLoginData Register = new FrmRegisterLoginData();
+            Register.Show();
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             bool valid = true;
             Customer.PPSNo = null;
@@ -54,8 +50,8 @@ namespace BankSYS
                 {
                     if (CustomerSQL.Login(Customer.CustomerId, Customer.PAC))
                     {
-                        FrmDisplayAccounts Acc = new FrmDisplayAccounts();
-                        Acc.Show();
+                        FrmDisplayAccounts Display = new FrmDisplayAccounts();
+                        Display.Show();
                         this.Hide();
 
                     }
@@ -66,7 +62,7 @@ namespace BankSYS
                 }
                 catch
                 {
-                    MessageBox.Show("Error 005: Could not connect to database. Please contact an administratior");
+                    MessageBox.Show("Error 001: Could not connect to database. Please contact an administratior");
                 }
             }
         }

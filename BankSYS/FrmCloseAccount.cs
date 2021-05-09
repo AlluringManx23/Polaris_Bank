@@ -14,7 +14,6 @@ namespace BankSYS
 
         private void FrmCloseAccount_Load(object sender, EventArgs e)
         {
-            
             FillcboBox();
         }
 
@@ -52,29 +51,28 @@ namespace BankSYS
                 Label Transaction_Type = new Label();
                 Label Transaction_Amount = new Label();
                 Label Transaction_Note = new Label();
+                
+                //Add Text
                 TransactionID.Text = Transactions.Tables[0].Rows[i]["TransactionID"].ToString();
                 Transaction_Type.Text = Transactions.Tables[0].Rows[i]["name"].ToString();
                 Transaction_Amount.Text = "€" + Transactions.Tables[0].Rows[i]["Amount"].ToString();
                 Transaction_Note.Text = Transactions.Tables[0].Rows[i]["Note"].ToString();
-                //Position label on screen
+
+                //properties
                 TransactionID.Left = 0;
                 TransactionID.Top = ((i + 1) * 25) + 75;
-                //TransactionID.Width = 100;
-
                 Transaction_Type.Left = 100;
                 Transaction_Type.Top = ((i + 1) * 25) + 75;
-                //Transaction_Type.Width = 100;
-
                 Transaction_Amount.Left = 500;
                 Transaction_Amount.Top = ((i + 1) * 25) + 75;
                 Transaction_Amount.Width = 75;
                 Transaction_Amount.AutoSize = false;
                 Transaction_Amount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                
                 Transaction_Note.Top = ((i + 1) * 25) + 75;
                 Transaction_Note.Left = 200;
                 Transaction_Note.Width = 350;
-                //Add controls to form
+                
+                //Add form
                 this.Controls.Add(TransactionID);
                 this.Controls.Add(Transaction_Type);
                 this.Controls.Add(Transaction_Amount);
@@ -109,7 +107,7 @@ namespace BankSYS
                 if (MessageBox.Show("Are you sure you want to close this account?", "Close Account", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     AccountSQL.CloseAccount(cboAccount.SelectedValue.ToString());
-                    MessageBox.Show("Your Account has been closed");
+                    MessageBox.Show("You Closed " + cboAccount.SelectedText.ToString() +" has been closed");
                     FrmDisplayAccounts back = new FrmDisplayAccounts();
                     back.Show();
                     this.Hide();

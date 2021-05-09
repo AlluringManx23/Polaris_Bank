@@ -1,7 +1,7 @@
 ﻿
 namespace BankSYS
 {
-    partial class FrmRegesterLoginData
+    partial class FrmRegisterLoginData
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace BankSYS
         {
             this.components = new System.ComponentModel.Container();
             this.txtpacno1 = new System.Windows.Forms.TextBox();
-            this.MnuRegisterUserLogin = new System.Windows.Forms.MenuStrip();
+            this.mnuRegisterUserLogin = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tblpacnum = new System.Windows.Forms.TableLayoutPanel();
@@ -46,7 +46,7 @@ namespace BankSYS
             this.tblpac = new System.Windows.Forms.TableLayoutPanel();
             this.tblppsno = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.MnuRegisterUserLogin.SuspendLayout();
+            this.mnuRegisterUserLogin.SuspendLayout();
             this.tblpacnum.SuspendLayout();
             this.tblpac.SuspendLayout();
             this.tblppsno.SuspendLayout();
@@ -57,7 +57,7 @@ namespace BankSYS
             // 
             this.txtpacno1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpacno1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno1.Location = new System.Drawing.Point(115, 7);
+            this.txtpacno1.Location = new System.Drawing.Point(116, 7);
             this.txtpacno1.MaxLength = 1;
             this.txtpacno1.Name = "txtpacno1";
             this.txtpacno1.PasswordChar = '*';
@@ -65,23 +65,23 @@ namespace BankSYS
             this.txtpacno1.TabIndex = 3;
             this.txtpacno1.TextChanged += new System.EventHandler(this.txtpacno1_TextChanged);
             // 
-            // MnuRegisterUserLogin
+            // mnuRegisterUserLogin
             // 
-            this.MnuRegisterUserLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRegisterUserLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backToolStripMenuItem,
             this.MnuExit});
-            this.MnuRegisterUserLogin.Location = new System.Drawing.Point(0, 0);
-            this.MnuRegisterUserLogin.Name = "MnuRegisterUserLogin";
-            this.MnuRegisterUserLogin.Size = new System.Drawing.Size(576, 24);
-            this.MnuRegisterUserLogin.TabIndex = 1;
-            this.MnuRegisterUserLogin.Text = "menuStrip1";
+            this.mnuRegisterUserLogin.Location = new System.Drawing.Point(0, 0);
+            this.mnuRegisterUserLogin.Name = "mnuRegisterUserLogin";
+            this.mnuRegisterUserLogin.Size = new System.Drawing.Size(584, 24);
+            this.mnuRegisterUserLogin.TabIndex = 1;
+            this.mnuRegisterUserLogin.Text = "menuStrip1";
             // 
             // backToolStripMenuItem
             // 
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
             this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.backToolStripMenuItem.Text = "Back";
-            this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
+            this.backToolStripMenuItem.Click += new System.EventHandler(this.mnuBack_Click);
             // 
             // MnuExit
             // 
@@ -89,7 +89,7 @@ namespace BankSYS
             this.MnuExit.Name = "MnuExit";
             this.MnuExit.Size = new System.Drawing.Size(38, 20);
             this.MnuExit.Text = "Exit";
-            this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
+            this.MnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // tblpacnum
             // 
@@ -112,14 +112,14 @@ namespace BankSYS
             this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tblpacnum.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tblpacnum.Size = new System.Drawing.Size(576, 46);
+            this.tblpacnum.Size = new System.Drawing.Size(584, 46);
             this.tblpacnum.TabIndex = 2;
             // 
             // txtpacno5
             // 
             this.txtpacno5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpacno5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno5.Location = new System.Drawing.Point(443, 7);
+            this.txtpacno5.Location = new System.Drawing.Point(448, 7);
             this.txtpacno5.MaxLength = 1;
             this.txtpacno5.Name = "txtpacno5";
             this.txtpacno5.PasswordChar = '*';
@@ -131,7 +131,7 @@ namespace BankSYS
             // 
             this.txtpacno4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpacno4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno4.Location = new System.Drawing.Point(361, 7);
+            this.txtpacno4.Location = new System.Drawing.Point(365, 7);
             this.txtpacno4.MaxLength = 1;
             this.txtpacno4.Name = "txtpacno4";
             this.txtpacno4.PasswordChar = '*';
@@ -143,7 +143,7 @@ namespace BankSYS
             // 
             this.txtpacno3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpacno3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno3.Location = new System.Drawing.Point(279, 7);
+            this.txtpacno3.Location = new System.Drawing.Point(282, 7);
             this.txtpacno3.MaxLength = 1;
             this.txtpacno3.Name = "txtpacno3";
             this.txtpacno3.PasswordChar = '*';
@@ -155,7 +155,7 @@ namespace BankSYS
             // 
             this.txtpacno2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpacno2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpacno2.Location = new System.Drawing.Point(197, 7);
+            this.txtpacno2.Location = new System.Drawing.Point(199, 7);
             this.txtpacno2.MaxLength = 1;
             this.txtpacno2.Name = "txtpacno2";
             this.txtpacno2.PasswordChar = '*';
@@ -166,7 +166,7 @@ namespace BankSYS
             // btnsubmit
             // 
             this.btnsubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnsubmit.Location = new System.Drawing.Point(199, 168);
+            this.btnsubmit.Location = new System.Drawing.Point(202, 178);
             this.btnsubmit.Name = "btnsubmit";
             this.btnsubmit.Size = new System.Drawing.Size(178, 48);
             this.btnsubmit.TabIndex = 11;
@@ -178,7 +178,7 @@ namespace BankSYS
             // 
             this.lblpac.AutoSize = true;
             this.lblpac.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpac.Location = new System.Drawing.Point(49, 23);
+            this.lblpac.Location = new System.Drawing.Point(50, 23);
             this.lblpac.Name = "lblpac";
             this.lblpac.Size = new System.Drawing.Size(472, 23);
             this.lblpac.TabIndex = 1;
@@ -188,7 +188,7 @@ namespace BankSYS
             // 
             this.txtppsno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtppsno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtppsno.Location = new System.Drawing.Point(222, 103);
+            this.txtppsno.Location = new System.Drawing.Point(226, 110);
             this.txtppsno.MaxLength = 9;
             this.txtppsno.Name = "txtppsno";
             this.txtppsno.Size = new System.Drawing.Size(131, 31);
@@ -200,7 +200,7 @@ namespace BankSYS
             this.lblppsno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblppsno.AutoSize = true;
             this.lblppsno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblppsno.Location = new System.Drawing.Point(117, 33);
+            this.lblppsno.Location = new System.Drawing.Point(120, 36);
             this.lblppsno.Name = "lblppsno";
             this.lblppsno.Size = new System.Drawing.Size(342, 25);
             this.lblppsno.TabIndex = 9;
@@ -219,7 +219,7 @@ namespace BankSYS
             this.tblpac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tblpac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tblpac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tblpac.Size = new System.Drawing.Size(576, 71);
+            this.tblpac.Size = new System.Drawing.Size(584, 71);
             this.tblpac.TabIndex = 0;
             // 
             // tblppsno
@@ -241,7 +241,7 @@ namespace BankSYS
             this.tblppsno.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.954546F));
             this.tblppsno.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
             this.tblppsno.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.954546F));
-            this.tblppsno.Size = new System.Drawing.Size(576, 239);
+            this.tblppsno.Size = new System.Drawing.Size(584, 254);
             this.tblppsno.TabIndex = 8;
             // 
             // errorProvider
@@ -250,22 +250,24 @@ namespace BankSYS
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
-            // FrmRegesterLoginData
+            // FrmRegisterLoginData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 398);
+            this.ClientSize = new System.Drawing.Size(584, 411);
             this.Controls.Add(this.tblppsno);
             this.Controls.Add(this.tblpac);
             this.Controls.Add(this.tblpacnum);
-            this.Controls.Add(this.MnuRegisterUserLogin);
-            this.MainMenuStrip = this.MnuRegisterUserLogin;
-            this.Name = "FrmRegesterLoginData";
+            this.Controls.Add(this.mnuRegisterUserLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.mnuRegisterUserLogin;
+            this.MaximizeBox = false;
+            this.Name = "FrmRegisterLoginData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Register Login";
+            this.Text = "Polaris Bank - Register Login";
             this.Load += new System.EventHandler(this.FrmRegesterLoginData_Load);
-            this.MnuRegisterUserLogin.ResumeLayout(false);
-            this.MnuRegisterUserLogin.PerformLayout();
+            this.mnuRegisterUserLogin.ResumeLayout(false);
+            this.mnuRegisterUserLogin.PerformLayout();
             this.tblpacnum.ResumeLayout(false);
             this.tblpacnum.PerformLayout();
             this.tblpac.ResumeLayout(false);
@@ -281,7 +283,7 @@ namespace BankSYS
         #endregion
 
         private System.Windows.Forms.TextBox txtpacno1;
-        private System.Windows.Forms.MenuStrip MnuRegisterUserLogin;
+        private System.Windows.Forms.MenuStrip mnuRegisterUserLogin;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MnuExit;
         private System.Windows.Forms.TableLayoutPanel tblpacnum;

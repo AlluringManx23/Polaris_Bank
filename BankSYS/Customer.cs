@@ -18,5 +18,23 @@
         public static string Eir { get; set; }
         public static string DateCreated { get; set; }
 
+        public static void Clear()
+        {
+            CustomerId = "";
+            PAC = "";
+            Fname = "";
+            Lname = "";
+            PPSNo = "";
+            DOB = "";
+            CountryCode = "";
+            PhoneNo = "";
+            AddressL1 = "";
+            AddressL2 = "";
+            AddressL3 = "";
+            Town = "";
+            County = "";
+            Eir = "";
+            DateCreated = "";
+        }
     }
 }

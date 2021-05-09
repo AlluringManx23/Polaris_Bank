@@ -4,26 +4,59 @@ using System.Windows.Forms;
 
 namespace BankSYS
 {
-    public partial class FrmRegesterUserData : Form
+    public partial class FrmRegisterUserData : Form
     {
-        public FrmRegesterUserData()
+        public FrmRegisterUserData()
         {
             InitializeComponent();
         }
 
-        private void MnuExit_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-
-            }
-            else
+            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
 
-        private void BtnSubmit_Click(object sender, EventArgs e)
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            FrmRegisterLoginData Register = new FrmRegisterLoginData();
+            Register.Show();
+            this.Hide();
+        }
+        private void FrmCreateAccount_Load(object sender, EventArgs e)
+        {
+            dtpdob.MaxDate = DateTime.Today;
+
+            string[] countryarr = { "countryid", "CONCAT(country,CONCAT(' ',CONCAT('(',CONCAT(code,')')))) AS country", "country_code" };
+            string[] countyarr = { "countyid", "county", "county" };
+            DataSet countryds = new DataSet();
+            DataSet countyds = new DataSet();
+            try
+            {
+                countryds = Reusable.dsfromDB(countryarr);
+                cboCountryCode.ValueMember = "countryid";
+                cboCountryCode.DisplayMember = "country";
+                cboCountryCode.DataSource = countryds.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("Error 003: Could not connect to database. Please contact an administratior");
+            }
+            try
+            {
+                countyds = Reusable.dsfromDB(countyarr);
+                cboCounty.ValueMember = "countyid";
+                cboCounty.DisplayMember = "county";
+                cboCounty.DataSource = countyds.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("Error 004: Could not connect to database. Please contact an administratior");
+            }
+        }
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             Validation v = new Validation();
             bool valid = true;
@@ -40,7 +73,6 @@ namespace BankSYS
             Customer.Town = txttown.Text;
             Customer.Eir = txteir.Text;
 
-            //making things uppercase
             Customer.Eir = Customer.Eir.ToUpper();
 
             errorprovider.Clear();
@@ -96,61 +128,24 @@ namespace BankSYS
                     Customer.Eir = Customer.Eir.Substring(0, 3) + " " + Customer.Eir.Substring(3, 4);
                 }
                 Customer.DateCreated = DateTime.Now.ToString("dd-MM-yyyy");
+                Customer.Lname = Customer.Lname.Replace("'", "''");
+
                 try
                 {
-                    Customer.Lname = Customer.Lname.Replace("'", "''");
                     CustomerSQL.AddUser();
 
-                    MessageBox.Show("Your Customer ID is " + Customer.CustomerId + ". \nPlease use this to login");
+                    MessageBox.Show("Your Customer ID is \n" + Customer.CustomerId + ". \nKeep track of this number as you will use it to login");
 
-                    FrmStartScreen s = new FrmStartScreen();
-                    s.Show();
+                    FrmStartScreen Start = new FrmStartScreen();
+                    Start.Show();
                     this.Hide();
                 }
                 catch
                 {
-                    MessageBox.Show("Error 004: Could not connect to database. Please contact an administratior");
+                    MessageBox.Show("Error 005: Could not connect to database. Please contact an administratior");
                 }
 
             }
-        }
-
-        private void FrmCreateAccount_Load(object sender, EventArgs e)
-        {
-            dtpdob.MaxDate = DateTime.Today;
-            
-            string[] countryarr = { "countryid", "CONCAT(country,CONCAT(' ',CONCAT('(',CONCAT(code,')')))) AS country", "country_code" };
-            string[] countyarr = { "countyid", "county", "county" };
-            DataSet countryds = new DataSet();
-            DataSet countyds = new DataSet();
-            try
-            {
-            countryds = Reusable.dsfromDB(countryarr);
-            cboCountryCode.ValueMember = "countryid";
-            cboCountryCode.DisplayMember = "country";
-            cboCountryCode.DataSource = countryds.Tables[0];
-            }
-            catch
-            {
-                MessageBox.Show("Error 002: Could not connect to database. Please contact an administratior");
-            }
-            try { 
-            countyds = Reusable.dsfromDB(countyarr);
-            cboCounty.ValueMember = "countyid";
-            cboCounty.DisplayMember = "county";
-            cboCounty.DataSource = countyds.Tables[0];
-            }
-            catch
-            {
-                MessageBox.Show("Error 003: Could not connect to database. Please contact an administratior");
-            }
-        }
-
-        private void MnuBack_Click(object sender, EventArgs e)
-        {
-            FrmRegesterLoginData Reg = new FrmRegesterLoginData();
-            Reg.Show();
-            this.Hide();
         }
     }
 }

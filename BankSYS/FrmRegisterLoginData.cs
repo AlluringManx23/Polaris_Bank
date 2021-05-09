@@ -1,35 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankSYS
 {
-    public partial class FrmRegesterLoginData : Form
+    public partial class FrmRegisterLoginData : Form
     {
-        public FrmRegesterLoginData()
+        public FrmRegisterLoginData()
         {
             InitializeComponent();
         }
 
-        private void MnuExit_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-
-            }
-            else
+            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
 
-        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuBack_Click(object sender, EventArgs e)
         {
             FrmStartScreen start = new FrmStartScreen();
             start.Show();
@@ -93,30 +82,29 @@ namespace BankSYS
                 errorProvider.SetError(txtppsno, "Please enter a valid pps number");
                 valid = false;
             }
-
-            try
+            if (valid.Equals(true))
             {
-                if (valid.Equals(true))
+                Customer.PPSNo = Customer.PPSNo.ToUpper();
+                try
                 {
-                    Customer.PPSNo = Customer.PPSNo.ToUpper();
-
                     if (CustomerSQL.IsInUse(Customer.PPSNo))
                     {
                         MessageBox.Show("This PPS number is already regestered to an account.");
                     }
                     else
                     {
-                        FrmRegesterUserData Reg = new FrmRegesterUserData();
-                        Reg.Show();
+                        FrmRegisterUserData Register = new FrmRegisterUserData();
+                        Register.Show();
                         this.Hide();
                     }
 
                 }
+                catch
+                {
+                    MessageBox.Show("Error 002: Could not connect to database. Please contact an administratior");
+                }
             }
-            catch
-            {
-                MessageBox.Show("Error 001: Could not connect to database. Please contact an administratior");
-            }
+            
         }
 
         private void txtppsno_TextChanged(object sender, EventArgs e)

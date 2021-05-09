@@ -13,13 +13,9 @@ namespace BankSYS
 
         Account Acc = new Account();
 
-        private void mnu_exit_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-
-            }
-            else
+            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -42,12 +38,14 @@ namespace BankSYS
                 cboAccountType.ValueMember = "id";
                 cboAccountType.DisplayMember = "name";
                 cboAccountType.DataSource = AccountTypesds.Tables[0];
+                lblDisplayName.Text = cboAccountType.Text;
             }
             catch
             {
-                MessageBox.Show("Error 00: Could not connect to database. Please contact an administratior");
+                cboAccountType.Text = "Error!";
+                MessageBox.Show("Error 008: Could not connect to database. Please contact an administratior");
             }
-            lblDisplayName.Text = cboAccountType.Text;
+            
         }
 
         private void txtAccountName_TextChanged(object sender, EventArgs e)
@@ -75,7 +73,7 @@ namespace BankSYS
             }
         }
 
-        private void BtnCreateAccount_Click(object sender, EventArgs e)
+        private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
             Validation v = new Validation();
@@ -96,15 +94,20 @@ namespace BankSYS
             }
             else
             {
-                AccountSQL.AddAccount(ref Acc);
-                MessageBox.Show("You Created a " + cboAccountType.Text + " Account\nwith the name " + Acc.Name);
+                //try
+                //{
+                    AccountSQL.AddAccount(ref Acc);
+                    MessageBox.Show("You Created a " + cboAccountType.Text + " Account\nwith the name " + Acc.Name);
 
-                FrmDisplayAccounts start = new FrmDisplayAccounts();
-                start.Show();
-                this.Hide();
+                    FrmDisplayAccounts start = new FrmDisplayAccounts();
+                    start.Show();
+                    this.Hide();
+                //}
+                //catch
+                //{
+                //    MessageBox.Show("Error 009: Could not connect to database. Please contact an administratior\n\nAccount Not Created");
+                //}
             }
-
-
         }
     }
 }

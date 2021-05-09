@@ -11,11 +11,11 @@ namespace BankSYS
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            T.id = Reusable.GetNextId(Transaction).ToString("D14");
+            T.TransactionID = Reusable.GetNextId(Transaction).ToString("D14");
             T.timestamp = DateTime.Now.ToString("dd/MM/yyyy/HH:mm:ss");
 
             String CustSQL = "INSERT INTO Transaction(transactionid,accountid,Type,amount,note,timestamp) " +
-            "VALUES('" + T.id + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
+            "VALUES('" + T.TransactionID + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
 
             OracleCommand Custcmd = new OracleCommand(CustSQL, conn);
             Custcmd.ExecuteNonQuery();
@@ -41,11 +41,11 @@ namespace BankSYS
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            T.id = Reusable.GetNextId(Transaction).ToString("D14");
+            T.TransactionID = Reusable.GetNextId(Transaction).ToString("D14");
             T.timestamp = DateTime.Now.ToString("dd/MM/yyyy/HH:mm:ss");
 
             String CustSQL = "INSERT INTO Transaction(transactionid,accountid,Type,amount,note,timestamp) " +
-            "VALUES('" + T.id + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
+            "VALUES('" + T.TransactionID + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
 
             OracleCommand Custcmd = new OracleCommand(CustSQL, conn);
             Custcmd.ExecuteNonQuery();
@@ -90,11 +90,11 @@ namespace BankSYS
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            T.id = Reusable.GetNextId(Transaction).ToString("D14");
+            T.TransactionID = Reusable.GetNextId(Transaction).ToString("D14");
             T.timestamp = DateTime.Now.ToString("dd/MM/yyyy/HH:mm:ss");
 
             String transferSQL = "INSERT INTO Transaction(transactionid,accountid,Type,amount,note,timestamp) " +
-            "VALUES('" + T.id + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
+            "VALUES('" + T.TransactionID + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
 
             OracleCommand Transfercmd = new OracleCommand(transferSQL, conn);
             Transfercmd.ExecuteNonQuery();
@@ -129,11 +129,11 @@ namespace BankSYS
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-            T.id = Reusable.GetNextId(Transaction).ToString("D14");
+            T.TransactionID = Reusable.GetNextId(Transaction).ToString("D14");
             T.timestamp = DateTime.Now.ToString("dd/MM/yyyy/HH:mm:ss");
 
             String CustSQL = "INSERT INTO Transaction(transactionid,accountid,Type,amount,note,timestamp) " +
-            "VALUES('" + T.id + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + ",'" + T.debtor + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
+            "VALUES('" + T.TransactionID + "', '" + T.account + "', '" + T.type + "', '" + T.amount + "', '" + T.note + ",'" + T.debtor + "', TO_DATE('" + T.timestamp + "', 'DD/MM/YYYY HH24:MI:SS'))";
 
             OracleCommand Custcmd = new OracleCommand(CustSQL, conn);
             Custcmd.ExecuteNonQuery();
@@ -151,6 +151,21 @@ namespace BankSYS
             Logcmd.ExecuteNonQuery();
 
             conn.Close();
+        }
+
+        public static DataTable dtForChart(string s)
+        {
+            DataTable dt = new DataTable();
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand Custcmd = new OracleCommand(s, conn);
+            OracleDataAdapter da = new OracleDataAdapter(Custcmd);
+            da.Fill(dt);
+            conn.Close();
+
+            return dt;
         }
     }
 }

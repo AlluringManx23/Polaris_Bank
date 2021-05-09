@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankSYS
@@ -30,10 +24,66 @@ namespace BankSYS
             }
             catch
             {
-                MessageBox.Show("Error 006: Could not connect to database. Please contact an administratior");
+                cboAccount.Text = "Error!";
+                MessageBox.Show("Error 014: Could not connect to database. Please contact an administratior");
             }
         }
 
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            FrmDisplayAccounts Display = new FrmDisplayAccounts();
+            Display.Show();
+            this.Hide();
+        }
+
+        private void mnuDeposit_Click(object sender, EventArgs e)
+        {
+            FrmDeposit deposit = new FrmDeposit();
+            deposit.Show();
+            this.Hide();
+        }
+
+        private void mnuTransfer_Click(object sender, EventArgs e)
+        {
+            FrmTransfer transfer = new FrmTransfer();
+            transfer.Show();
+            this.Hide();
+        }
+
+        private void mnuCreateAccount_Click(object sender, EventArgs e)
+        {
+            FrmCreateAccount create = new FrmCreateAccount();
+            create.Show();
+            this.Hide();
+        }
+        private void mnuUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            FrmCreateAccount UpdateCustomer = new FrmCreateAccount();
+            UpdateCustomer.Show();
+            this.Hide();
+        }
+
+        private void mnuTerminateCustomer_Click(object sender, EventArgs e)
+        {
+            FrmCreateAccount Terminate = new FrmCreateAccount();
+            Terminate.Show();
+            this.Hide();
+        }
+
+        private void mnuUpdateAccount_Click(object sender, EventArgs e)
+        {
+            FrmCreateAccount UpdateAccount = new FrmCreateAccount();
+            UpdateAccount.Show();
+            this.Hide();
+        }
         private void btnWithdraw_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -61,59 +111,47 @@ namespace BankSYS
                 {
                     if(TransactionSQL.CheckBalance(ref T))
                     {
-                        TransactionSQL.Withdraw(ref T);
+                        try
+                        {
+                            TransactionSQL.Withdraw(ref T);
+                            MessageBox.Show("You just withdrew €" + T.amount);
+
+                            FrmDisplayAccounts Display = new FrmDisplayAccounts();
+                            Display.Show();
+                            this.Hide();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Error 017: Could not connect to database. Your Withdrawal Has not been processed \nPlease contact an administratior");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("You do not have enough money in your account to process this transaction");
+                        MessageBox.Show("You do not have enough money in your account to process this Withdrawal");
                     }
                     
                 }
                 catch
                 {
-                    MessageBox.Show("Error 007: Could not connect to database. Please contact an administratior");
+                    MessageBox.Show("Error 016: Could not connect to database. Please contact an administratior");
                 }
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cboAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            string[] Accountinfo = { "Balance", "ACCOUNT WHERE AccountID = " + cboAccount.SelectedValue};
+            DataSet Accounts = new DataSet();
+            try
             {
-
+                Accounts = Reusable.dsfromDB(Accountinfo);
+                lblBalanceAmount.Text = "€" + Accounts.Tables[0].Rows[0][0].ToString();
             }
-            else
+            catch
             {
-                Application.Exit();
+                lblBalanceAmount.Text = "Error!";
+                MessageBox.Show("Error 015: Could not connect to database. Please contact an administratior");
             }
-        }
-
-        private void backToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmDisplayAccounts Display = new FrmDisplayAccounts();
-            Display.Show();
-            this.Hide();
-        }
-
-        private void depositToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmDeposit deposit = new FrmDeposit();
-            deposit.Show();
-            this.Hide();
-        }
-
-        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmTransfer transfer = new FrmTransfer();
-            transfer.Show();
-            this.Hide();
-        }
-
-        private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCreateAccount create = new FrmCreateAccount();
-            create.Show();
-            this.Hide();
         }
     }
 }

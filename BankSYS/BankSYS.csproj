@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,11 +52,29 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountSQL.cs" />
+    <Compile Include="FrmTransactionChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTransactionChart.Designer.cs">
+      <DependentUpon>FrmTransactionChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTerminateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTerminateCustomer.Designer.cs">
       <DependentUpon>FrmTerminateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateAccount.Designer.cs">
+      <DependentUpon>FrmUpdateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateCustomer.Designer.cs">
+      <DependentUpon>FrmUpdateCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateForm.cs" />
     <Compile Include="FrmCloseAccount.cs">
@@ -100,17 +119,17 @@
     <Compile Include="CustomerSQL.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="FrmRegesterUserData.cs">
+    <Compile Include="FrmRegisterUserData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegesterUserData.Designer.cs">
-      <DependentUpon>FrmRegesterUserData.cs</DependentUpon>
+    <Compile Include="FrmRegisterUserData.Designer.cs">
+      <DependentUpon>FrmRegisterUserData.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegesterLoginData.cs">
+    <Compile Include="FrmRegisterLoginData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegesterLoginData.Designer.cs">
-      <DependentUpon>FrmRegesterLoginData.cs</DependentUpon>
+    <Compile Include="FrmRegisterLoginData.Designer.cs">
+      <DependentUpon>FrmRegisterLoginData.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStartScreen.cs">
       <SubType>Form</SubType>
@@ -133,11 +152,11 @@
     <EmbeddedResource Include="FrmDisplayAccounts.resx">
       <DependentUpon>FrmDisplayAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegesterUserData.resx">
-      <DependentUpon>FrmRegesterUserData.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRegisterUserData.resx">
+      <DependentUpon>FrmRegisterUserData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegesterLoginData.resx">
-      <DependentUpon>FrmRegesterLoginData.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRegisterLoginData.resx">
+      <DependentUpon>FrmRegisterLoginData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStartScreen.resx">
       <DependentUpon>FrmStartScreen.cs</DependentUpon>
@@ -145,8 +164,17 @@
     <EmbeddedResource Include="FrmTerminateCustomer.resx">
       <DependentUpon>FrmTerminateCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTransactionChart.resx">
+      <DependentUpon>FrmTransactionChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTransfer.resx">
       <DependentUpon>FrmTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateAccount.resx">
+      <DependentUpon>FrmUpdateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateCustomer.resx">
+      <DependentUpon>FrmUpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWithdraw.resx">
       <DependentUpon>FrmWithdraw.cs</DependentUpon>

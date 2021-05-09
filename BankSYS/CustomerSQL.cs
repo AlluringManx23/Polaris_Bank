@@ -1,10 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankSYS
 {
@@ -52,7 +48,7 @@ namespace BankSYS
             {
                 if (dr[1].Equals(k))
                 {
-                    GetCustName(s);
+                    GetCustInfo();
                     conn.Close();
                     return true;
                 }
@@ -69,10 +65,10 @@ namespace BankSYS
             }
         }
 
-        public static void GetCustName(string s)
+        public static void GetCustInfo()
         {
             //define Sql Query
-            String strSQL = "SELECT first_name,last_name FROM Customer where CustomerID = " + s;
+            String strSQL = "SELECT C.First_name, C.Last_name, C.PPS_Number, P.Code, C.Phone_number, C.Date_Of_Birth, C.Address_line_1, C.Address_line_2, C.Address_line_3, C.town, L.County, C.eircode, C.Date_Created FROM Customer C INNER JOIN Country_Code P ON C.COUNTRY_CODE = P.CountryID INNER JOIN County L ON C.county = L.CountyID  where CustomerID = " + Customer.CustomerId;
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
@@ -83,13 +79,24 @@ namespace BankSYS
             dr.Read();
             Customer.Fname = dr[0].ToString();
             Customer.Lname = dr[1].ToString();
+            Customer.PPSNo = dr[2].ToString();
+            Customer.CountryCode = dr[3].ToString();
+            Customer.PhoneNo = dr[4].ToString();
+            Customer.DOB = dr[5].ToString().Substring(0,10);
+            Customer.AddressL1 = dr[6].ToString();
+            Customer.AddressL2 = dr[7].ToString();
+            Customer.AddressL3 = dr[8].ToString();
+            Customer.Town = dr[9].ToString();
+            Customer.County = dr[10].ToString();
+            Customer.Eir = dr[11].ToString();
+            Customer.DateCreated = dr[12].ToString().Substring(0, 10);
             conn.Close();
 
         }
-        public static DataSet GetUser()
+        public static void UpdateInfo()
         {
             //define Sql Query
-            String strSQL = "SELECT accountid, first_name, last_name,date_of_birth FROM Accounts";
+            String strSQL = "Update Customer SET First_Name = '" + Customer.Fname + "', Last_Name = '" + Customer.Lname + "',Country_Code = " + Customer.CountryCode + ",Phone_Number = " + Customer.PhoneNo + ", Address_Line_1 = '" + Customer.AddressL1 + "', Address_Line_2 = '" + Customer.AddressL2 + "', Address_Line_3 = '" + Customer.AddressL3 + "', Town = '" + Customer.Town + "', County = " + Customer.County + ", EirCode = '" + Customer.Eir + "' Where CustomerID = " + Customer.CustomerId;
 
             //Declare an Oracle Connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -97,19 +104,10 @@ namespace BankSYS
 
             //declare an Oracle Command to execute
             OracleCommand cmd = new OracleCommand(strSQL, conn);
-
-            //Declare an Oracle DataAdapter
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            //Declare DataSet to return records to application
-            DataSet ds = new DataSet();
-
-            da.Fill(ds, "WS");
-
+            cmd.ExecuteNonQuery();
+            
             //Close database connection
             conn.Close();
-
-            return ds;
         }
 
         public static bool IsInUse(string s)

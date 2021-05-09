@@ -41,20 +41,18 @@ namespace BankSYS
 
         private void FrmTransfer_Load(object sender, EventArgs e)
         {
+            string[] Account = { "accountid", "CONCAT(Name,CONCAT(' - ',accountid)) AS display_name", "account WHERE Status = 'A' AND CUSTOMERID = " + Customer.CustomerId + " ORDER BY ACCOUNTID" };
+            DataSet Accountds = new DataSet();
+            try
             {
-                string[] Account = { "accountid", "CONCAT(Name,CONCAT(' - ',accountid)) AS display_name", "account WHERE Status = 'A' AND CUSTOMERID = " + Customer.CustomerId + " ORDER BY ACCOUNTID" };
-                DataSet Accountds = new DataSet();
-                try
-                {
-                    Accountds = Reusable.dsfromDB(Account);
-                    cboCreditorAccount.ValueMember = "accountid";
-                    cboCreditorAccount.DisplayMember = "display_name";
-                    cboCreditorAccount.DataSource = Accountds.Tables[0];
-                }
-                catch
-                {
-                    MessageBox.Show("Error 006: Could not connect to database. Please contact an administratior");
-                }
+                Accountds = Reusable.dsfromDB(Account);
+                cboCreditorAccount.ValueMember = "accountid";
+                cboCreditorAccount.DisplayMember = "display_name";
+                cboCreditorAccount.DataSource = Accountds.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("Error 006: Could not connect to database. Please contact an administratior");
             }
         }
 
@@ -152,10 +150,21 @@ namespace BankSYS
                 {
                     Application.Exit();
                 }
-                else
-                {
-
-                }
             }
+
+        private void cboCreditorAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] Accountinfo = { "Balance", "ACCOUNT WHERE AccountID = " + cboCreditorAccount.SelectedValue };
+            DataSet Accounts = new DataSet();
+            try
+            {
+                Accounts = Reusable.dsfromDB(Accountinfo);
+                lblBalanceAmount.Text = "€" + Accounts.Tables[0].Rows[0][0].ToString();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
