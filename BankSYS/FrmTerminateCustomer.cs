@@ -42,9 +42,9 @@ namespace BankSYS
 
         private void updateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //FrmUpdateCustomer updateCust = new FrmUpdateCustomer();
-            //updateCust.Show();
-            //this.Hide();
+            FrmUpdateCustomer updateCust = new FrmUpdateCustomer();
+            updateCust.Show();
+            this.Hide();
         }
 
         private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,9 +56,9 @@ namespace BankSYS
 
         private void updateAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //FrmUpdateAccount updateAcc = new FrmUpdateAccount();
-            //updateAcc.Show();
-            //this.Hide();
+            FrmUpdateAccount updateAcc = new FrmUpdateAccount();
+            updateAcc.Show();
+            this.Hide();
         }
 
         private void closeAccountToolStripMenuItem_Click(object sender, EventArgs e)

@@ -94,19 +94,19 @@ namespace BankSYS
             }
             else
             {
-                //try
-                //{
+                try
+                {
                     AccountSQL.AddAccount(ref Acc);
                     MessageBox.Show("You Created a " + cboAccountType.Text + " Account\nwith the name " + Acc.Name);
 
                     FrmDisplayAccounts start = new FrmDisplayAccounts();
                     start.Show();
                     this.Hide();
-                //}
-                //catch
-                //{
-                //    MessageBox.Show("Error 009: Could not connect to database. Please contact an administratior\n\nAccount Not Created");
-                //}
+                }
+                catch
+                {
+                    MessageBox.Show("Error 009: Could not connect to database. Please contact an administratior\n\nAccount Not Created");
+                }
             }
         }
     }

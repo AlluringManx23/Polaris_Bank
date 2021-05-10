@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
@@ -15,7 +13,7 @@ namespace BankSYS
         public void PopulateChart(string s)
         {
             String MonthlyInSQL = "SELECT to_Char(TIMESTAMP,'MM') AS MONTH,SUM(to_number(Amount, '9999999.99')) From Transaction WHERE (Accountid = '" + cboAccount.SelectedValue + "' AND TYPE = 'D') OR debtorid = '" + cboAccount.SelectedValue + "' AND to_Char(TIMESTAMP,'DD/MM/YYYY') LIKE '%2021' GROUP BY to_Char(TIMESTAMP,'MM') ORDER BY to_Char(TIMESTAMP,'MM')";
-            String MonthlyOutSQL = "SELECT SUM(to_number(Amount, '9999999.99')) From Transaction WHERE (TYPE = 'W' OR Type = 'T') AND Accountid = '" + cboAccount.SelectedValue + "' AND to_Char(TIMESTAMP,'DD/MM/YYYY') LIKE '%2021' GROUP BY to_Char(TIMESTAMP,'MM') ORDER BY to_Char(TIMESTAMP,'MM')";
+            String MonthlyOutSQL = "SELECT SUM(to_number(Amount, '9999999.99')) From Transaction WHERE (TYPE = 'W' OR Type = 'T') AND Accountid = '" + cboAccount.SelectedValue + "' AND to_Char(TIMESTAMP,'DD/MM/YYYY') LIKE '%2020' GROUP BY to_Char(TIMESTAMP,'MM') ORDER BY to_Char(TIMESTAMP,'MM')";
             DataTable MonthlyIn = new DataTable();
             DataTable MonthlyOut = new DataTable();
             MonthlyIn = TransactionSQL.dtForChart(MonthlyInSQL);
@@ -25,7 +23,15 @@ namespace BankSYS
             for (int i = 0; i < MonthlyIn.Rows.Count; i++)
             {
                 N[i] = getMonth(Convert.ToInt32(MonthlyIn.Rows[i][0]));
-                M[i] = Convert.ToDecimal(MonthlyIn.Rows[i][1]) - Convert.ToDecimal(MonthlyOut.Rows[i][0]);
+                try
+                {
+                    M[i] = Convert.ToDecimal(MonthlyIn.Rows[i][1]) - Convert.ToDecimal(MonthlyOut.Rows[i][0]);
+                }
+                catch
+                {
+                    M[i] = Convert.ToDecimal(MonthlyIn.Rows[i][1]) - Convert.ToDecimal(0.00);
+                }
+                
             }
             chtTransactions.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
             chtTransactions.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
@@ -126,6 +132,70 @@ namespace BankSYS
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateChart(cboAccount.SelectedValue.ToString());
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void mnuUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            FrmUpdateCustomer UpdateCustomer = new FrmUpdateCustomer();
+            UpdateCustomer.Show();
+            this.Hide();
+        }
+
+        private void mnuTerminate_Click(object sender, EventArgs e)
+        {
+            FrmTerminateCustomer Terminate = new FrmTerminateCustomer();
+            Terminate.Show();
+            this.Hide();
+        }
+
+        private void mnuCreateAccount_Click(object sender, EventArgs e)
+        {
+            FrmCreateAccount Create = new FrmCreateAccount();
+            Create.Show();
+            this.Hide();
+        }
+
+        private void mnuUpdateAccount_Click(object sender, EventArgs e)
+        {
+            FrmUpdateAccount UpdateAccount = new FrmUpdateAccount();
+            UpdateAccount.Show();
+            this.Hide();
+        }
+
+        private void mnuCloseAccount_Click(object sender, EventArgs e)
+        {
+            FrmCloseAccount close = new FrmCloseAccount();
+            close.Show();
+            this.Hide();
+        }
+
+        private void mnuDeposit_Click(object sender, EventArgs e)
+        {
+            FrmDeposit Deposit = new FrmDeposit();
+            Deposit.Show();
+            this.Hide();
+        }
+
+        private void mnuWithdraw_Click(object sender, EventArgs e)
+        {
+            FrmWithdraw Withdraw = new FrmWithdraw();
+            Withdraw.Show();
+            this.Hide();
+        }
+
+        private void mnuTransfer_Click(object sender, EventArgs e)
+        {
+            FrmTransfer Transfer = new FrmTransfer();
+            Transfer.Show();
+            this.Hide();
         }
     }
 }

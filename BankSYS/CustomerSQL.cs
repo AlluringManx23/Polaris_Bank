@@ -95,24 +95,19 @@ namespace BankSYS
         }
         public static void UpdateInfo()
         {
-            //define Sql Query
             String strSQL = "Update Customer SET First_Name = '" + Customer.Fname + "', Last_Name = '" + Customer.Lname + "',Country_Code = " + Customer.CountryCode + ",Phone_Number = " + Customer.PhoneNo + ", Address_Line_1 = '" + Customer.AddressL1 + "', Address_Line_2 = '" + Customer.AddressL2 + "', Address_Line_3 = '" + Customer.AddressL3 + "', Town = '" + Customer.Town + "', County = " + Customer.County + ", EirCode = '" + Customer.Eir + "' Where CustomerID = " + Customer.CustomerId;
 
-            //Declare an Oracle Connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            //declare an Oracle Command to execute
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
             
-            //Close database connection
             conn.Close();
         }
 
         public static bool IsInUse(string s)
         {
-            //define Sql Query
             String strSQL = "SELECT * FROM Customer where pps_number = '" + s + "'";
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -136,7 +131,6 @@ namespace BankSYS
 
         public static void TerminateAccount(string s)
         {
-            //define Sql Query
             String DeleteLogin = "Delete FROM Login where CustomerID = '" + s + "'";
             String TerminateAccount = "Update Customer SET Status = 'T' WHERE CustomerID = '" + s + "'";
 

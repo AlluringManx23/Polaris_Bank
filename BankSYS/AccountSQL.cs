@@ -137,5 +137,18 @@ namespace BankSYS
             conn.Close();
         }
 
+        public static void UpdateAccount(string s,string t,string i)
+        {
+            //define Sql Query
+            String strSQL = "update Account set Name = '" + s + "', Type = '" + i + "' WHERE AccountID = " + t;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

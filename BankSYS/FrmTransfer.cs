@@ -166,5 +166,34 @@ namespace BankSYS
 
             }
         }
+
+        private void mnuUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            FrmUpdateCustomer UpdateCustomer = new FrmUpdateCustomer();
+            UpdateCustomer.Show();
+            this.Hide();
+        }
+
+        private void mnuTerminateCustomer_Click(object sender, EventArgs e)
+        {
+            FrmTerminateCustomer Terminate = new FrmTerminateCustomer();
+            Terminate.Show();
+            this.Hide();
+        }
+
+        private void mnuUpdateAccount_Click(object sender, EventArgs e)
+        {
+            FrmUpdateAccount updateAcc = new FrmUpdateAccount();
+            updateAcc.Show();
+            this.Hide();
+        }
+
+        private void mnuCloseAccount_Click(object sender, EventArgs e)
+        {
+            FrmCloseAccount close = new FrmCloseAccount();
+            close.Show();
+            this.Hide();
+        }
+
     }
 }

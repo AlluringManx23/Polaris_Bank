@@ -29,9 +29,9 @@ namespace BankSYS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,12 +100,14 @@ namespace BankSYS
             this.mnuUpdateCustomer.Name = "mnuUpdateCustomer";
             this.mnuUpdateCustomer.Size = new System.Drawing.Size(181, 22);
             this.mnuUpdateCustomer.Text = "Update Customer";
+            this.mnuUpdateCustomer.Click += new System.EventHandler(this.mnuUpdateCustomer_Click);
             // 
             // mnuTerminate
             // 
             this.mnuTerminate.Name = "mnuTerminate";
             this.mnuTerminate.Size = new System.Drawing.Size(181, 22);
             this.mnuTerminate.Text = "Terminate Customer";
+            this.mnuTerminate.Click += new System.EventHandler(this.mnuTerminate_Click);
             // 
             // accountToolStripMenuItem
             // 
@@ -120,20 +122,23 @@ namespace BankSYS
             // mnuCreateAccount
             // 
             this.mnuCreateAccount.Name = "mnuCreateAccount";
-            this.mnuCreateAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuCreateAccount.Size = new System.Drawing.Size(160, 22);
             this.mnuCreateAccount.Text = "Create Account";
+            this.mnuCreateAccount.Click += new System.EventHandler(this.mnuCreateAccount_Click);
             // 
             // mnuUpdateAccount
             // 
             this.mnuUpdateAccount.Name = "mnuUpdateAccount";
-            this.mnuUpdateAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdateAccount.Size = new System.Drawing.Size(160, 22);
             this.mnuUpdateAccount.Text = "Update Account";
+            this.mnuUpdateAccount.Click += new System.EventHandler(this.mnuUpdateAccount_Click);
             // 
             // mnuCloseAccount
             // 
             this.mnuCloseAccount.Name = "mnuCloseAccount";
-            this.mnuCloseAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuCloseAccount.Size = new System.Drawing.Size(160, 22);
             this.mnuCloseAccount.Text = "Close Account";
+            this.mnuCloseAccount.Click += new System.EventHandler(this.mnuCloseAccount_Click);
             // 
             // mnuTransaction
             // 
@@ -148,20 +153,23 @@ namespace BankSYS
             // mnuDeposit
             // 
             this.mnuDeposit.Name = "mnuDeposit";
-            this.mnuDeposit.Size = new System.Drawing.Size(180, 22);
+            this.mnuDeposit.Size = new System.Drawing.Size(125, 22);
             this.mnuDeposit.Text = "Deposit";
+            this.mnuDeposit.Click += new System.EventHandler(this.mnuDeposit_Click);
             // 
             // mnuWithdraw
             // 
             this.mnuWithdraw.Name = "mnuWithdraw";
-            this.mnuWithdraw.Size = new System.Drawing.Size(180, 22);
+            this.mnuWithdraw.Size = new System.Drawing.Size(125, 22);
             this.mnuWithdraw.Text = "Withdraw";
+            this.mnuWithdraw.Click += new System.EventHandler(this.mnuWithdraw_Click);
             // 
             // mnuTransfer
             // 
             this.mnuTransfer.Name = "mnuTransfer";
-            this.mnuTransfer.Size = new System.Drawing.Size(180, 22);
+            this.mnuTransfer.Size = new System.Drawing.Size(125, 22);
             this.mnuTransfer.Text = "Transfer";
+            this.mnuTransfer.Click += new System.EventHandler(this.mnuTransfer_Click);
             // 
             // mnuExit
             // 
@@ -169,19 +177,20 @@ namespace BankSYS
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(38, 20);
             this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // chtTransactions
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chtTransactions.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chtTransactions.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chtTransactions.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtTransactions.Legends.Add(legend1);
             this.chtTransactions.Location = new System.Drawing.Point(0, 121);
             this.chtTransactions.Name = "chtTransactions";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chtTransactions.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chtTransactions.Series.Add(series1);
             this.chtTransactions.Size = new System.Drawing.Size(804, 338);
             this.chtTransactions.TabIndex = 2;
             this.chtTransactions.Text = "chart1";
@@ -250,6 +259,7 @@ namespace BankSYS
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmTransactionChart";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Polaris Bank - Transaction Chart";
             this.Load += new System.EventHandler(this.FrmTransactionChart_Load);
             this.menuStrip2.ResumeLayout(false);

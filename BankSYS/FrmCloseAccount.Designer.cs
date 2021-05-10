@@ -222,9 +222,10 @@ namespace BankSYS
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "FrmCloseAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Polaris Bank - Close Account";
             this.Load += new System.EventHandler(this.FrmCloseAccount_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

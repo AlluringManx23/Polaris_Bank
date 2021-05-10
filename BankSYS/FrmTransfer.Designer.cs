@@ -37,6 +37,8 @@ namespace BankSYS
             this.mnuTerminateCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCreateAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdateAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCloseAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDeposit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuWithdraw = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,6 @@ namespace BankSYS
             this.btnTransfer = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.mnuUpdateAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCloseAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTransfer.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -98,12 +98,14 @@ namespace BankSYS
             this.mnuUpdateCustomer.Name = "mnuUpdateCustomer";
             this.mnuUpdateCustomer.Size = new System.Drawing.Size(181, 22);
             this.mnuUpdateCustomer.Text = "Update Customer";
+            this.mnuUpdateCustomer.Click += new System.EventHandler(this.mnuUpdateCustomer_Click);
             // 
             // mnuTerminateCustomer
             // 
             this.mnuTerminateCustomer.Name = "mnuTerminateCustomer";
             this.mnuTerminateCustomer.Size = new System.Drawing.Size(181, 22);
             this.mnuTerminateCustomer.Text = "Terminate Customer";
+            this.mnuTerminateCustomer.Click += new System.EventHandler(this.mnuTerminateCustomer_Click);
             // 
             // mnuAccount
             // 
@@ -118,9 +120,23 @@ namespace BankSYS
             // mnuCreateAccount
             // 
             this.mnuCreateAccount.Name = "mnuCreateAccount";
-            this.mnuCreateAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuCreateAccount.Size = new System.Drawing.Size(160, 22);
             this.mnuCreateAccount.Text = "Create Account";
             this.mnuCreateAccount.Click += new System.EventHandler(this.createAccountToolStripMenuItem_Click);
+            // 
+            // mnuUpdateAccount
+            // 
+            this.mnuUpdateAccount.Name = "mnuUpdateAccount";
+            this.mnuUpdateAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdateAccount.Text = "Update Account";
+            this.mnuUpdateAccount.Click += new System.EventHandler(this.mnuUpdateAccount_Click);
+            // 
+            // mnuCloseAccount
+            // 
+            this.mnuCloseAccount.Name = "mnuCloseAccount";
+            this.mnuCloseAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuCloseAccount.Text = "Close Account";
+            this.mnuCloseAccount.Click += new System.EventHandler(this.mnuCloseAccount_Click);
             // 
             // transactionToolStripMenuItem
             // 
@@ -134,14 +150,14 @@ namespace BankSYS
             // mnuDeposit
             // 
             this.mnuDeposit.Name = "mnuDeposit";
-            this.mnuDeposit.Size = new System.Drawing.Size(180, 22);
+            this.mnuDeposit.Size = new System.Drawing.Size(125, 22);
             this.mnuDeposit.Text = "Deposit";
             this.mnuDeposit.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
             // 
             // mnuWithdraw
             // 
             this.mnuWithdraw.Name = "mnuWithdraw";
-            this.mnuWithdraw.Size = new System.Drawing.Size(180, 22);
+            this.mnuWithdraw.Size = new System.Drawing.Size(125, 22);
             this.mnuWithdraw.Text = "Withdraw";
             this.mnuWithdraw.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
             // 
@@ -314,18 +330,6 @@ namespace BankSYS
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // mnuUpdateAccount
-            // 
-            this.mnuUpdateAccount.Name = "mnuUpdateAccount";
-            this.mnuUpdateAccount.Size = new System.Drawing.Size(180, 22);
-            this.mnuUpdateAccount.Text = "Update Account";
-            // 
-            // mnuCloseAccount
-            // 
-            this.mnuCloseAccount.Name = "mnuCloseAccount";
-            this.mnuCloseAccount.Size = new System.Drawing.Size(180, 22);
-            this.mnuCloseAccount.Text = "Close Account";
-            // 
             // FrmTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +343,7 @@ namespace BankSYS
             this.MaximizeBox = false;
             this.Name = "FrmTransfer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTransfer";
+            this.Text = "Polaris Bank - Transfer";
             this.Load += new System.EventHandler(this.FrmTransfer_Load);
             this.mnuTransfer.ResumeLayout(false);
             this.mnuTransfer.PerformLayout();

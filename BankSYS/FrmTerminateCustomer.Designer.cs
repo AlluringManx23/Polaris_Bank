@@ -29,13 +29,20 @@ namespace BankSYS
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTerminateCustomer = new System.Windows.Forms.MenuStrip();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdateCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCreateAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdateAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCloseAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTransaction = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDeposit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuWithdraw = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTransfer = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,62 +51,132 @@ namespace BankSYS
             this.txtLName = new System.Windows.Forms.TextBox();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
-            this.updateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.withdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddressL1 = new System.Windows.Forms.TextBox();
             this.txtAddressL2 = new System.Windows.Forms.TextBox();
             this.txtAddressL3 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtDOB = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtTown = new System.Windows.Forms.TextBox();
-            this.txtCounty = new System.Windows.Forms.TextBox();
-            this.txtEircode = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtEircode = new System.Windows.Forms.TextBox();
+            this.txtCounty = new System.Windows.Forms.TextBox();
+            this.txtTown = new System.Windows.Forms.TextBox();
+            this.txtDOB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.mnuTerminateCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // mnuTerminateCustomer
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.backToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.customerToolStripMenuItem,
-            this.accountToolStripMenuItem,
-            this.transactionToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mnuTerminateCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuBack,
+            this.mnuExit,
+            this.mnuCustomer,
+            this.mnuAccount,
+            this.mnuTransaction});
+            this.mnuTerminateCustomer.Location = new System.Drawing.Point(0, 0);
+            this.mnuTerminateCustomer.Name = "mnuTerminateCustomer";
+            this.mnuTerminateCustomer.Size = new System.Drawing.Size(800, 24);
+            this.mnuTerminateCustomer.TabIndex = 0;
+            this.mnuTerminateCustomer.Text = "menuStrip1";
             // 
-            // backToolStripMenuItem
+            // mnuBack
             // 
-            this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.backToolStripMenuItem.Text = "Back";
-            this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(44, 20);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(38, 20);
+            this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // mnuCustomer
+            // 
+            this.mnuCustomer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuUpdateCustomer});
+            this.mnuCustomer.Name = "mnuCustomer";
+            this.mnuCustomer.Size = new System.Drawing.Size(71, 20);
+            this.mnuCustomer.Text = "Customer";
+            // 
+            // mnuUpdateCustomer
+            // 
+            this.mnuUpdateCustomer.Name = "mnuUpdateCustomer";
+            this.mnuUpdateCustomer.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdateCustomer.Text = "Update Customer";
+            this.mnuUpdateCustomer.Click += new System.EventHandler(this.updateCustomerToolStripMenuItem_Click);
+            // 
+            // mnuAccount
+            // 
+            this.mnuAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuCreateAccount,
+            this.mnuUpdateAccount,
+            this.mnuCloseAccount});
+            this.mnuAccount.Name = "mnuAccount";
+            this.mnuAccount.Size = new System.Drawing.Size(64, 20);
+            this.mnuAccount.Text = "Account";
+            // 
+            // mnuCreateAccount
+            // 
+            this.mnuCreateAccount.Name = "mnuCreateAccount";
+            this.mnuCreateAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuCreateAccount.Text = "Create Account";
+            this.mnuCreateAccount.Click += new System.EventHandler(this.createAccountToolStripMenuItem_Click);
+            // 
+            // mnuUpdateAccount
+            // 
+            this.mnuUpdateAccount.Name = "mnuUpdateAccount";
+            this.mnuUpdateAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuUpdateAccount.Text = "Update Account";
+            this.mnuUpdateAccount.Click += new System.EventHandler(this.updateAccountToolStripMenuItem_Click);
+            // 
+            // mnuCloseAccount
+            // 
+            this.mnuCloseAccount.Name = "mnuCloseAccount";
+            this.mnuCloseAccount.Size = new System.Drawing.Size(180, 22);
+            this.mnuCloseAccount.Text = "Close Account";
+            this.mnuCloseAccount.Click += new System.EventHandler(this.closeAccountToolStripMenuItem_Click);
+            // 
+            // mnuTransaction
+            // 
+            this.mnuTransaction.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuDeposit,
+            this.mnuWithdraw,
+            this.mnuTransfer});
+            this.mnuTransaction.Name = "mnuTransaction";
+            this.mnuTransaction.Size = new System.Drawing.Size(79, 20);
+            this.mnuTransaction.Text = "Transaction";
+            // 
+            // mnuDeposit
+            // 
+            this.mnuDeposit.Name = "mnuDeposit";
+            this.mnuDeposit.Size = new System.Drawing.Size(180, 22);
+            this.mnuDeposit.Text = "Deposit";
+            this.mnuDeposit.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
+            // 
+            // mnuWithdraw
+            // 
+            this.mnuWithdraw.Name = "mnuWithdraw";
+            this.mnuWithdraw.Size = new System.Drawing.Size(180, 22);
+            this.mnuWithdraw.Text = "Withdraw";
+            this.mnuWithdraw.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
+            // 
+            // mnuTransfer
+            // 
+            this.mnuTransfer.Name = "mnuTransfer";
+            this.mnuTransfer.Size = new System.Drawing.Size(180, 22);
+            this.mnuTransfer.Text = "Transfer";
+            this.mnuTransfer.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -110,34 +187,6 @@ namespace BankSYS
             this.button1.Text = "Terminate";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // customerToolStripMenuItem
-            // 
-            this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateCustomerToolStripMenuItem});
-            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.customerToolStripMenuItem.Text = "Customer";
-            // 
-            // accountToolStripMenuItem
-            // 
-            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createAccountToolStripMenuItem,
-            this.updateAccountToolStripMenuItem,
-            this.closeAccountToolStripMenuItem});
-            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.accountToolStripMenuItem.Text = "Account";
-            // 
-            // transactionToolStripMenuItem
-            // 
-            this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.depositToolStripMenuItem,
-            this.withdrawToolStripMenuItem,
-            this.transferToolStripMenuItem});
-            this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // label1
             // 
@@ -209,55 +258,6 @@ namespace BankSYS
             this.txtFName.Size = new System.Drawing.Size(154, 20);
             this.txtFName.TabIndex = 9;
             // 
-            // updateCustomerToolStripMenuItem
-            // 
-            this.updateCustomerToolStripMenuItem.Name = "updateCustomerToolStripMenuItem";
-            this.updateCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.updateCustomerToolStripMenuItem.Text = "Update Customer";
-            this.updateCustomerToolStripMenuItem.Click += new System.EventHandler(this.updateCustomerToolStripMenuItem_Click);
-            // 
-            // createAccountToolStripMenuItem
-            // 
-            this.createAccountToolStripMenuItem.Name = "createAccountToolStripMenuItem";
-            this.createAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createAccountToolStripMenuItem.Text = "Create Account";
-            this.createAccountToolStripMenuItem.Click += new System.EventHandler(this.createAccountToolStripMenuItem_Click);
-            // 
-            // updateAccountToolStripMenuItem
-            // 
-            this.updateAccountToolStripMenuItem.Name = "updateAccountToolStripMenuItem";
-            this.updateAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.updateAccountToolStripMenuItem.Text = "Update Account";
-            this.updateAccountToolStripMenuItem.Click += new System.EventHandler(this.updateAccountToolStripMenuItem_Click);
-            // 
-            // closeAccountToolStripMenuItem
-            // 
-            this.closeAccountToolStripMenuItem.Name = "closeAccountToolStripMenuItem";
-            this.closeAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeAccountToolStripMenuItem.Text = "Close Account";
-            this.closeAccountToolStripMenuItem.Click += new System.EventHandler(this.closeAccountToolStripMenuItem_Click);
-            // 
-            // depositToolStripMenuItem
-            // 
-            this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-            this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.depositToolStripMenuItem.Text = "Deposit";
-            this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
-            // 
-            // withdrawToolStripMenuItem
-            // 
-            this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
-            this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.withdrawToolStripMenuItem.Text = "Withdraw";
-            this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
-            // 
-            // transferToolStripMenuItem
-            // 
-            this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.transferToolStripMenuItem.Text = "Transfer";
-            this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -322,24 +322,6 @@ namespace BankSYS
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Information";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 120);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Date Of Birth: ";
-            // 
-            // txtDOB
-            // 
-            this.txtDOB.Location = new System.Drawing.Point(117, 120);
-            this.txtDOB.MaxLength = 10;
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.ReadOnly = true;
-            this.txtDOB.Size = new System.Drawing.Size(70, 20);
-            this.txtDOB.TabIndex = 11;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label10);
@@ -361,38 +343,14 @@ namespace BankSYS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address";
             // 
-            // txtTown
+            // label10
             // 
-            this.txtTown.Location = new System.Drawing.Point(274, 20);
-            this.txtTown.Name = "txtTown";
-            this.txtTown.ReadOnly = true;
-            this.txtTown.Size = new System.Drawing.Size(100, 20);
-            this.txtTown.TabIndex = 14;
-            // 
-            // txtCounty
-            // 
-            this.txtCounty.Location = new System.Drawing.Point(274, 64);
-            this.txtCounty.Name = "txtCounty";
-            this.txtCounty.ReadOnly = true;
-            this.txtCounty.Size = new System.Drawing.Size(100, 20);
-            this.txtCounty.TabIndex = 15;
-            // 
-            // txtEircode
-            // 
-            this.txtEircode.Location = new System.Drawing.Point(274, 100);
-            this.txtEircode.Name = "txtEircode";
-            this.txtEircode.ReadOnly = true;
-            this.txtEircode.Size = new System.Drawing.Size(62, 20);
-            this.txtEircode.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Town:";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(220, 104);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Eircode: ";
             // 
             // label9
             // 
@@ -403,14 +361,56 @@ namespace BankSYS
             this.label9.TabIndex = 18;
             this.label9.Text = "County:";
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(220, 104);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Eircode: ";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(220, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Town:";
+            // 
+            // txtEircode
+            // 
+            this.txtEircode.Location = new System.Drawing.Point(274, 100);
+            this.txtEircode.Name = "txtEircode";
+            this.txtEircode.ReadOnly = true;
+            this.txtEircode.Size = new System.Drawing.Size(62, 20);
+            this.txtEircode.TabIndex = 16;
+            // 
+            // txtCounty
+            // 
+            this.txtCounty.Location = new System.Drawing.Point(274, 64);
+            this.txtCounty.Name = "txtCounty";
+            this.txtCounty.ReadOnly = true;
+            this.txtCounty.Size = new System.Drawing.Size(100, 20);
+            this.txtCounty.TabIndex = 15;
+            // 
+            // txtTown
+            // 
+            this.txtTown.Location = new System.Drawing.Point(274, 20);
+            this.txtTown.Name = "txtTown";
+            this.txtTown.ReadOnly = true;
+            this.txtTown.Size = new System.Drawing.Size(100, 20);
+            this.txtTown.TabIndex = 14;
+            // 
+            // txtDOB
+            // 
+            this.txtDOB.Location = new System.Drawing.Point(117, 120);
+            this.txtDOB.MaxLength = 10;
+            this.txtDOB.Name = "txtDOB";
+            this.txtDOB.ReadOnly = true;
+            this.txtDOB.Size = new System.Drawing.Size(70, 20);
+            this.txtDOB.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Date Of Birth: ";
             // 
             // FrmTerminateCustomer
             // 
@@ -420,14 +420,16 @@ namespace BankSYS
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.mnuTerminateCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.mnuTerminateCustomer;
+            this.MaximizeBox = false;
             this.Name = "FrmTerminateCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Terminate Customer";
+            this.Text = "Polaris Bank - Terminate Customer";
             this.Load += new System.EventHandler(this.FrmTerminateCustomer_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mnuTerminateCustomer.ResumeLayout(false);
+            this.mnuTerminateCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -440,13 +442,13 @@ namespace BankSYS
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip mnuTerminateCustomer;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuCustomer;
+        private System.Windows.Forms.ToolStripMenuItem mnuAccount;
+        private System.Windows.Forms.ToolStripMenuItem mnuTransaction;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -455,13 +457,13 @@ namespace BankSYS
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.TextBox txtPhoneNo;
         private System.Windows.Forms.TextBox txtFName;
-        private System.Windows.Forms.ToolStripMenuItem updateCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createAccountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateAccountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeAccountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem depositToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem withdrawToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuUpdateCustomer;
+        private System.Windows.Forms.ToolStripMenuItem mnuCreateAccount;
+        private System.Windows.Forms.ToolStripMenuItem mnuUpdateAccount;
+        private System.Windows.Forms.ToolStripMenuItem mnuCloseAccount;
+        private System.Windows.Forms.ToolStripMenuItem mnuDeposit;
+        private System.Windows.Forms.ToolStripMenuItem mnuWithdraw;
+        private System.Windows.Forms.ToolStripMenuItem mnuTransfer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAddressL1;
         private System.Windows.Forms.TextBox txtAddressL2;
